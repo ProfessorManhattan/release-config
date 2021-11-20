@@ -1,123 +1,123 @@
 export const commitTypes = {
-	maxSubjectLength: 72,
-	bodyLineLength: 100,
-	typesOrder: [
-		'feat',
-		'fix',
-		'perf',
-		'build',
-		'refactor',
-		'docs',
-		'test',
-		'ci',
-		'chore',
-		'style',
-		'revert',
-		'initial',
-		'dependencies',
-		'peerDependencies',
-		'devDependencies',
-		'metadata',
-	],
-	types: {
-		feat: {
-			description: 'A new feature',
-			title: 'Features',
-			emoji: '✨',
-			changelog: true,
-			release: 'minor',
-			aliases: {initial: {description: 'Initial commit', title: 'Initial', emoji: '🎉'}},
-		},
-		fix: {
-			description: 'A bug fix',
-			title: 'Bug Fixes',
-			emoji: '🐛',
-			changelog: true,
-			release: 'patch',
-			aliases: {
-				dependencies: {description: 'Update dependency', title: 'Dependencies', emoji: '⬆️', scope: 'package'},
-				peerDependencies: {
-					description: 'Update peer dependency',
-					title: 'Peer dependencies',
-					emoji: '⬆️',
-					scope: 'package',
-				},
-				metadata: {description: 'Update metadata (package.json)', title: 'Metadata', emoji: '📦', scope: 'package'},
-			},
-		},
-		docs: {
-			description: 'Documentation only changes',
-			title: 'Documentation',
-			emoji: '📚',
-			changelog: true,
-			release: {scope: 'readme', release: 'patch'},
-		},
-		style: {
-			description:
-				'Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)',
-			title: 'Styles',
-			emoji: '💎',
-			changelog: true,
-			release: false,
-		},
-		refactor: {
-			description: 'A code change that neither fixes a bug nor adds a feature',
-			title: 'Code Refactoring',
-			emoji: '📦',
-			changelog: true,
-			release: false,
-		},
-		perf: {
-			description: 'A code change that improves performance',
-			title: 'Performance Improvements',
-			emoji: '🚀',
-			changelog: true,
-			release: 'patch',
-		},
-		test: {
-			description: 'Adding missing tests or correcting existing tests',
-			title: 'Tests',
-			emoji: '🚨',
-			changelog: true,
-			release: false,
-		},
-		build: {
-			description:
-				'Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)',
-			title: 'Builds',
-			emoji: '🛠',
-			changelog: true,
-			release: 'patch',
-		},
-		ci: {
-			description:
-				'Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)',
-			title: 'Continuous Integrations',
-			emoji: '⚙️',
-			changelog: true,
-			release: false,
-		},
-		chore: {
-			description: "Other changes that don't modify src or test files",
-			title: 'Chores',
-			emoji: '♻️',
-			changelog: true,
-			release: false,
-			aliases: {
-				devDependencies: {
-					description: 'Update dev dependencies',
-					title: 'Dev dependencies',
-					emoji: '⬆️',
-					scope: 'package',
-				},
-			},
-		},
-		revert: {
-			description: 'Reverts a previous commit',
-			title: 'Reverts',
-			emoji: '🗑',
-			changelog: true,
-			release: false,
-		},
-	},
-};
+  bodyLineLength: 100,
+  maxSubjectLength: 72,
+  types: {
+    build: {
+      changelog: true,
+      description:
+        'Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)',
+      emoji: '🛠',
+      release: 'patch',
+      title: 'Builds'
+    },
+    chore: {
+      aliases: {
+        devDependencies: {
+          description: 'Update dev dependencies',
+          emoji: '⬆️',
+          scope: 'package',
+          title: 'Dev dependencies'
+        }
+      },
+      changelog: true,
+      description: "Other changes that don't modify src or test files",
+      emoji: '♻️',
+      release: false,
+      title: 'Chores'
+    },
+    ci: {
+      changelog: true,
+      description:
+        'Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)',
+      emoji: '⚙️',
+      release: false,
+      title: 'Continuous Integrations'
+    },
+    docs: {
+      changelog: true,
+      description: 'Documentation only changes',
+      emoji: '📚',
+      release: { release: 'patch', scope: 'readme' },
+      title: 'Documentation'
+    },
+    feat: {
+      aliases: { initial: { description: 'Initial commit', emoji: '🎉', title: 'Initial' } },
+      changelog: true,
+      description: 'A new feature',
+      emoji: '✨',
+      release: 'minor',
+      title: 'Features'
+    },
+    fix: {
+      aliases: {
+        dependencies: { description: 'Update dependency', emoji: '⬆️', scope: 'package', title: 'Dependencies' },
+        metadata: { description: 'Update metadata (package.json)', emoji: '📦', scope: 'package', title: 'Metadata' },
+        peerDependencies: {
+          description: 'Update peer dependency',
+          emoji: '⬆️',
+          scope: 'package',
+          title: 'Peer dependencies'
+        }
+      },
+      changelog: true,
+      description: 'A bug fix',
+      emoji: '🐛',
+      release: 'patch',
+      title: 'Bug Fixes'
+    },
+    perf: {
+      changelog: true,
+      description: 'A code change that improves performance',
+      emoji: '🚀',
+      release: 'patch',
+      title: 'Performance Improvements'
+    },
+    refactor: {
+      changelog: true,
+      description: 'A code change that neither fixes a bug nor adds a feature',
+      emoji: '📦',
+      release: false,
+      title: 'Code Refactoring'
+    },
+    revert: {
+      changelog: true,
+      description: 'Reverts a previous commit',
+      emoji: '🗑',
+      release: false,
+      title: 'Reverts'
+    },
+    style: {
+      changelog: true,
+      description:
+        'Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)',
+      emoji: '💎',
+      release: false,
+      title: 'Styles'
+    },
+    test: {
+      changelog: true,
+      description: 'Adding missing tests or correcting existing tests',
+      emoji: '🚨',
+      release: false,
+      title: 'Tests'
+    }
+  },
+  typesOrder: [
+    'feat',
+    'fix',
+    'perf',
+    'build',
+    'refactor',
+    'docs',
+    'test',
+    'ci',
+    'chore',
+    'style',
+    'revert',
+    'initial',
+    'dependencies',
+    'peerDependencies',
+    'devDependencies',
+    'metadata'
+  ]
+}
