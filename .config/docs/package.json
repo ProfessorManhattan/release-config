@@ -1,18 +1,18 @@
 {
   "private": "false",
-  "name": "@mblabs/docs-ansible",
+  "name": "@mblabs/docs-npm",
   "version": "0.0.1",
-  "description": "Documentation partials used to generate documentation for Ansible roles, playbooks, and more",
+  "description": "Documentation partials used to generate documentation for NPM, Node, and NestJS projects",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
   "homepage": "https://megabyte.space",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ProfessorManhattan/docs-ansible.git"
+    "url": "git+https://github.com/ProfessorManhattan/docs-npm.git"
   },
   "bugs": {
     "email": "help@megabyte.space",
-    "url": "https://gitlab.com/megabyte-labs/documentation/ansible/-/issues"
+    "url": "https://gitlab.com/megabyte-labs/documentation/npm/-/issues"
   },
   "type": "module",
   "scripts": {
@@ -37,18 +37,16 @@
     "handlebars-helpers": "^0.10.0"
   },
   "keywords": [
-    "ansible",
     "common",
     "docs",
     "documentation",
     "megabytelabs",
+    "nestjs",
+    "node",
     "npm",
     "package",
     "partials",
-    "playbook",
-    "playbooks",
     "professormanhattan",
-    "roles",
     "shared"
   ],
   "engines": {
@@ -58,23 +56,20 @@
     "access": "public"
   },
   "blueprint": {
-    "description": "Documentation partials used to generate documentation for Ansible roles, playbooks, and more",
+    "description": "Documentation partials used to generate documentation for NPM, Node, and NestJS projects",
     "docs": {
-      "link": "https://megabyte.space/docs/documentation/ansible"
+      "link": "https://megabyte.space/docs/documentation/npm"
     },
     "group": "documentation",
-    "name": "Ansible Documentation",
-    "overview": "This repository contains documentation partials used to generate documentation for Ansible roles/playbooks. It uses the partials in conjunction with variables to generate unique (and useful) documentation for its downstream children. When this project is updated, the changes are propagated to the [Ansible common files repository](https://gitlab.com/megabyte-labs/common/ansible). After that, the Ansible common files repository propagates its changes (which includes updates to the documentation hosted in this repository) to individual Ansible projects.",
-    "profile": {
-      "npmjs_organization": "mblabs"
-    },
+    "name": "NPM Documentation",
+    "overview": "This repository contains documentation partials used to generate documentation for NPM, Node, and [NestJS](https://nestjs.com/) projects. It uses the partials in conjunction with customizable variables to generate unique documentation that follows the same format for many types of NPM/Node/NestJS projects. When this project is updated, the changes are propagated to the [NPM common files repository](https://gitlab.com/megabyte-labs/common/npm). From there, common files and documentation are propagated to individual NPM projects. By doing this, we are able to keep documentation, configurations, and common files up-to-date from a central location.",
     "repository": {
-      "github": "https://github.com/ProfessorManhattan/docs-ansible",
-      "gitlab": "https://gitlab.com/megabyte-labs/documentation/ansible"
+      "github": "https://github.com/ProfessorManhattan/docs-npm",
+      "gitlab": "https://gitlab.com/megabyte-labs/documentation/npm"
     },
-    "slug": "docs-ansible",
-    "subgroup": "ansible",
-    "title": "Ansible Role/Playbook Documentation Partials"
+    "slug": "docs-npm",
+    "subgroup": "npm",
+    "title": "NPM/Node/NestJS Project Documentation Partials"
   },
   "eslintConfig": {
     "extends": "@mblabs/eslint-config"
