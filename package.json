@@ -1,0 +1,131 @@
+{
+  "private": false,
+  "name": "@installdoc/ansible-androidstudio",
+  "version": "1.1.14",
+  "description": "Installs Android Studio and sets up Android SDKs on nearly any OS",
+  "license": "MIT",
+  "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
+  "homepage": "https://megabyte.space",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProfessorManhattan/ansible-androidstudio.git"
+  },
+  "bugs": {
+    "email": "help@megabyte.space",
+    "url": "https://gitlab.com/megabyte-labs/ansible-roles/androidstudio/-/issues"
+  },
+  "type": "module",
+  "scripts": {
+    "help": "task --list",
+    "prepare": "task common:husky",
+    "start": "bash .config/start.sh"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "tslib": "^2.3.1"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^13.1.0",
+    "@mblabs/eslint-config": "^1.0.97",
+    "@mblabs/prettier-config": "^14.14.14",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "handlebars-helpers": "^0.10.0"
+  },
+  "keywords": [
+    "semantic",
+    "release",
+    "bundle",
+    "library",
+    "gitlab",
+    "github",
+    "git",
+    "chrome",
+    "firefox",
+    "npm",
+    "exec"
+  ],
+  "engines": {
+    "node": ">=14.18.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "blueprint": {
+    "description": "Bundles together an ambitious `semantic-release` shared configuration",
+    "group": "npm",
+    "name": "Release Config",
+    "overview": "[semantic-release](https://www.npmjs.com/package/semantic-release) automates the process of releasing packages to a wide variety of target eco-systems. This package bundles together the dependencies required for automatically releasing assets to npmjs.org, gitlab.com, github.com, and pypi.org. It also includes the ability to run shell scripts throughout the `semantic-release` flow among a few other features that you will have to find as easter eggs.",
+    "repository": {
+      "github": "https://github.com/ProfessorManhattan/release-config",
+      "gitlab": "https://gitlab.com/megabyte-labs/npm/configs/release"
+    },
+    "slug": "release-config",
+    "subgroup": "config",
+    "title": "A Big Bundle of Software Release Automation Plugins"
+  },
+  "eslintConfig": {
+    "extends": "@mblabs/eslint-config"
+  },
+  "funding": [
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/megabytelabs"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/ProfessorManhattan"
+    }
+  ],
+  "lint-staged": {
+    "**/*": [
+      "blocklint --wordlist blacklist,slave,whitelist",
+      "check-merge-conflict",
+      "check-added-large-files",
+      "check-symlinks",
+      "destroyed-symlinks"
+    ],
+    "**/*.(css|html|less|md|mjml|php|scss|sh|xml)": [
+      "task fix:prettier --"
+    ],
+    "**/*.(jpg|png)": [
+      "task image:compress --"
+    ],
+    "**/*.(js|jsx|ts|tsx)": [
+      "task fix:js --",
+      "task lint:js --"
+    ],
+    "**/*.json": [
+      "task fix:json --"
+    ],
+    "**/*.sh": [
+      "task fix:shell --",
+      "task lint:shell --"
+    ],
+    "**/*.toml": [
+      "task lint:toml --"
+    ],
+    "**/*.xml": [
+      "task fix:xml --",
+      "task lint:xml --"
+    ],
+    "**/*.yml": [
+      "task fix:yaml --",
+      "task lint:yaml --"
+    ],
+    "logo.png": [
+      "task image:resize -- 200 200",
+      "task image:compress --"
+    ]
+  },
+  "prettier": "@mblabs/prettier-config",
+  "standard-version": {
+    "scripts": {
+      "prerelease": "git add --all"
+    }
+  }
+}
