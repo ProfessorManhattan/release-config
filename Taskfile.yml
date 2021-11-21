@@ -35,7 +35,6 @@ includes:
   git: ./.config/taskfiles/Taskfile-git.yml
   image: ./.config/taskfiles/Taskfile-image.yml
   install: ./.config/taskfiles/install/Taskfile.yml
-  install: ./.config/taskfiles/Taskfile-install.yml
   install:npm: ./.config/taskfiles/install/Taskfile-npm.yml
   install:python: ./.config/taskfiles/install/Taskfile-python.yml
   install:software: ./.config/taskfiles/install/Taskfile-software.yml
