@@ -62,7 +62,10 @@
   "overview": "[[ This is a new repository without the details filled in yet. Look for the section about blueprint data in the CONTRIBUTING.md to set up the project. ]]",
   "plugins": {
     "eslint": [
-      ["ESLint Plugin", "Description"],
+      [
+        "ESLint Plugin",
+        "Description"
+      ],
       [
         "[`@typescript-eslint/eslint-plugin`](https://npmjs.com/package/@typescript-eslint/eslint-plugin)",
         "INSERT_DESCRIPTION_HERE"
@@ -71,8 +74,14 @@
         "[`@typescript-eslint/eslint-plugin-tslint`](https://npmjs.com/package/@typescript-eslint/eslint-plugin-tslint)",
         "INSERT_DESCRIPTION_HERE"
       ],
-      ["[`@typescript-eslint/parser`](https://npmjs.com/package/@typescript-eslint/parser)", "INSERT_DESCRIPTION_HERE"],
-      ["[`eslint-config-prettier`](https://npmjs.com/package/eslint-config-prettier)", "INSERT_DESCRIPTION_HERE"],
+      [
+        "[`@typescript-eslint/parser`](https://npmjs.com/package/@typescript-eslint/parser)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-config-prettier`](https://npmjs.com/package/eslint-config-prettier)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
       [
         "[`eslint-formatter-gitlab`](https://npmjs.com/package/eslint-formatter-gitlab)",
         "Formatter for GitLab CI that integrates results into merge requests"
@@ -81,7 +90,10 @@
         "[`eslint-formatter-pretty`](https://npmjs.com/package/eslint-formatter-pretty)",
         "Stylish formatter for terminal results that includes features such as clicking result to open code in editor"
       ],
-      ["[`eslint-plugin-array-func`](https://npmjs.com/package/eslint-plugin-array-func)", "INSERT_DESCRIPTION_HERE"],
+      [
+        "[`eslint-plugin-array-func`](https://npmjs.com/package/eslint-plugin-array-func)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
       [
         "[`eslint-plugin-editorconfig`](https://npmjs.com/package/eslint-plugin-editorconfig)",
         "INSERT_DESCRIPTION_HERE"
@@ -90,15 +102,42 @@
         "[`eslint-plugin-eslint-comments`](https://npmjs.com/package/eslint-plugin-eslint-comments)",
         "INSERT_DESCRIPTION_HERE"
       ],
-      ["[`eslint-plugin-etc`](https://npmjs.com/package/eslint-plugin-etc)", "INSERT_DESCRIPTION_HERE"],
-      ["[`eslint-plugin-ext`](https://npmjs.com/package/eslint-plugin-ext)", "INSERT_DESCRIPTION_HERE"],
-      ["[`eslint-plugin-filenames`](https://npmjs.com/package/eslint-plugin-filenames)", "INSERT_DESCRIPTION_HERE"],
-      ["[`eslint-plugin-fp`](https://npmjs.com/package/eslint-plugin-fp)", "INSERT_DESCRIPTION_HERE"],
-      ["[`eslint-plugin-functional`](https://npmjs.com/package/eslint-plugin-functional)", "INSERT_DESCRIPTION_HERE"],
-      ["[`eslint-plugin-import`](https://npmjs.com/package/eslint-plugin-import)", "INSERT_DESCRIPTION_HERE"],
-      ["[`eslint-plugin-jest`](https://npmjs.com/package/eslint-plugin-jest)", "INSERT_DESCRIPTION_HERE"],
-      ["[`eslint-plugin-jest-async`](https://npmjs.com/package/eslint-plugin-jest-async)", "INSERT_DESCRIPTION_HERE"],
-      ["[`eslint-plugin-jest-dom`](https://npmjs.com/package/eslint-plugin-dom)", "INSERT_DESCRIPTION_HERE"],
+      [
+        "[`eslint-plugin-etc`](https://npmjs.com/package/eslint-plugin-etc)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-ext`](https://npmjs.com/package/eslint-plugin-ext)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-filenames`](https://npmjs.com/package/eslint-plugin-filenames)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-fp`](https://npmjs.com/package/eslint-plugin-fp)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-functional`](https://npmjs.com/package/eslint-plugin-functional)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-import`](https://npmjs.com/package/eslint-plugin-import)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-jest`](https://npmjs.com/package/eslint-plugin-jest)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-jest-async`](https://npmjs.com/package/eslint-plugin-jest-async)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-jest-dom`](https://npmjs.com/package/eslint-plugin-dom)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
       [
         "[`eslint-plugin-jest-formatting`](https://npmjs.com/package/eslint-plugin-formatting)",
         "INSERT_DESCRIPTION_HERE"
@@ -107,7 +146,10 @@
         "[`eslint-plugin-json-schema-validator`](https://npmjs.com/package/eslint-plugin-json-schema-validator)",
         "INSERT_DESCRIPTION_HERE"
       ],
-      ["[`eslint-plugin-jsonc`](https://npmjs.com/package/eslint-plugin-jsonc)", "INSERT_DESCRIPTION_HERE"],
+      [
+        "[`eslint-plugin-jsonc`](https://npmjs.com/package/eslint-plugin-jsonc)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
       [
         "[`eslint-plugin-no-constructor-bind`](https://npmjs.com/package/eslint-plugin-no-constructor-bind)",
         "INSERT_DESCRIPTION_HERE"
@@ -116,8 +158,14 @@
         "[`eslint-plugin-no-explicit-type-exports`](https://npmjs.com/package/eslint-plugin-no-explicit-type-exports)",
         "INSERT_DESCRIPTION_HERE"
       ],
-      ["[`eslint-plugin-no-loops`](https://npmjs.com/package/eslint-plugin-no-loops)", "INSERT_DESCRIPTION_HERE"],
-      ["[`eslint-plugin-no-secrets`](https://npmjs.com/package/eslint-plugin-no-secrets)", "INSERT_DESCRIPTION_HERE"],
+      [
+        "[`eslint-plugin-no-loops`](https://npmjs.com/package/eslint-plugin-no-loops)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-no-secrets`](https://npmjs.com/package/eslint-plugin-no-secrets)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
       [
         "[`eslint-plugin-no-unsanitized`](https://npmjs.com/package/eslint-plugin-no-unsanitized)",
         "INSERT_DESCRIPTION_HERE"
@@ -126,7 +174,10 @@
         "[`eslint-plugin-no-use-extend-native`](https://npmjs.com/package/eslint-plugin-no-use-extend-native)",
         "INSERT_DESCRIPTION_HERE"
       ],
-      ["[`eslint-plugin-node`](https://npmjs.com/package/eslint-plugin-node)", "INSERT_DESCRIPTION_HERE"],
+      [
+        "[`eslint-plugin-node`](https://npmjs.com/package/eslint-plugin-node)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
       [
         "[`eslint-plugin-optimize-regex`](https://npmjs.com/package/eslint-plugin-optimize-regex)",
         "INSERT_DESCRIPTION_HERE"
@@ -135,12 +186,30 @@
         "[`eslint-plugin-prefer-arrow`](https://npmjs.com/package/eslint-plugin-prefer-arrow)",
         "INSERT_DESCRIPTION_HERE"
       ],
-      ["[`eslint-plugin-prettier`](https://npmjs.com/package/eslint-plugin-prettier)", "INSERT_DESCRIPTION_HERE"],
-      ["[`eslint-plugin-promise`](https://npmjs.com/package/eslint-plugin-promise)", "INSERT_DESCRIPTION_HERE"],
-      ["[`eslint-plugin-regexp`](https://npmjs.com/package/eslint-plugin-regexp)", "INSERT_DESCRIPTION_HERE"],
-      ["[`eslint-plugin-rxjs`](https://npmjs.com/package/eslint-plugin-rxjs)", "INSERT_DESCRIPTION_HERE"],
-      ["[`eslint-plugin-security`](https://npmjs.com/package/eslint-plugin-security)", "INSERT_DESCRIPTION_HERE"],
-      ["[`eslint-plugin-sonarjs`](https://npmjs.com/package/eslint-plugin-sonarjs)", "INSERT_DESCRIPTION_HERE"],
+      [
+        "[`eslint-plugin-prettier`](https://npmjs.com/package/eslint-plugin-prettier)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-promise`](https://npmjs.com/package/eslint-plugin-promise)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-regexp`](https://npmjs.com/package/eslint-plugin-regexp)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-rxjs`](https://npmjs.com/package/eslint-plugin-rxjs)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-security`](https://npmjs.com/package/eslint-plugin-security)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-sonarjs`](https://npmjs.com/package/eslint-plugin-sonarjs)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
       [
         "[`eslint-plugin-sort-class-members`](https://npmjs.com/package/eslint-plugin-sort-class-members)",
         "INSERT_DESCRIPTION_HERE"
@@ -149,60 +218,150 @@
         "[`eslint-plugin-sort-keys-fix`](https://npmjs.com/package/eslint-plugin-sort-keys-fix)",
         "INSERT_DESCRIPTION_HERE"
       ],
-      ["[`eslint-plugin-switch-case`](https://npmjs.com/package/eslint-plugin-switch-case)", "INSERT_DESCRIPTION_HERE"],
-      ["[`eslint-plugin-toml`](https://npmjs.com/package/eslint-plugin-toml)", "INSERT_DESCRIPTION_HERE"],
-      ["[`eslint-plugin-tsdoc`](https://npmjs.com/package/eslint-plugin-tsdoc)", "INSERT_DESCRIPTION_HERE"],
+      [
+        "[`eslint-plugin-switch-case`](https://npmjs.com/package/eslint-plugin-switch-case)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-toml`](https://npmjs.com/package/eslint-plugin-toml)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-tsdoc`](https://npmjs.com/package/eslint-plugin-tsdoc)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
       [
         "[`eslint-plugin-typescript-sort-keys`](https://npmjs.com/package/eslint-plugin-typescript-sort-keys)",
         "INSERT_DESCRIPTION_HERE"
       ],
-      ["[`eslint-plugin-unicorn`](https://npmjs.com/package/eslint-plugin-unicorn)", "INSERT_DESCRIPTION_HERE"],
+      [
+        "[`eslint-plugin-unicorn`](https://npmjs.com/package/eslint-plugin-unicorn)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
       [
         "[`eslint-plugin-unused-imports`](https://npmjs.com/package/eslint-plugin-unused-imports)",
         "INSERT_DESCRIPTION_HERE"
       ],
-      ["[`eslint-plugin-woke`](https://npmjs.com/package/eslint-plugin-woke)", "INSERT_DESCRIPTION_HERE"],
-      ["[`eslint-plugin-yml`](https://npmjs.com/package/eslint-plugin-yml)", "INSERT_DESCRIPTION_HERE"]
+      [
+        "[`eslint-plugin-woke`](https://npmjs.com/package/eslint-plugin-woke)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-yml`](https://npmjs.com/package/eslint-plugin-yml)",
+        "INSERT_DESCRIPTION_HERE"
+      ]
     ],
     "jest": [
-      ["Jest Plugin", "Description"],
-      ["[`@jest-runner/electron`](https://npmjs.com/package/@jest-runner/electron)", "INSERT_DESCRIPTION_HERE"],
+      [
+        "Jest Plugin",
+        "Description"
+      ],
+      [
+        "[`@jest-runner/electron`](https://npmjs.com/package/@jest-runner/electron)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
       [
         "[`@storybook/addon-storyshots`](https://npmjs.com/package/@storybook/addon-storyshots)",
         "INSERT_DESCRIPTION_HERE"
       ],
-      ["[`expect-puppeteer`](https://npmjs.com/package/expect-puppeteer)", "INSERT_DESCRIPTION_HERE"],
-      ["[`jest-chain`](https://npmjs.com/package/jest-chain)", "INSERT_DESCRIPTION_HERE"],
-      ["[`jest-dom`](https://npmjs.com/package/jest-dom)", "INSERT_DESCRIPTION_HERE"],
-      ["[`jest-html-reporters`](https://npmjs.com/package/jest-html-reporters)", "INSERT_DESCRIPTION_HERE"],
-      ["[`jest-image-snapshot`](https://npmjs.com/package/jest-image-snapshot)", "INSERT_DESCRIPTION_HERE"],
-      ["[`jest-json-schema`](https://npmjs.com/package/jest-json-schema)", "INSERT_DESCRIPTION_HERE"],
-      ["[`jest-preset-angular`](https://npmjs.com/package/jest-preset-angular)", "INSERT_DESCRIPTION_HERE"],
-      ["[`jest-puppeteer`](https://npmjs.com/package/jest-puppeteer)", "INSERT_DESCRIPTION_HERE"],
-      ["[`jest-runner-eslint`](https://npmjs.com/package/jest-runner-eslint)", "INSERT_DESCRIPTION_HERE"],
-      ["[`jest-runner-groups`](https://npmjs.com/package/jest-runner-groups)", "INSERT_DESCRIPTION_HERE"],
-      ["[`jest-runner-prettier`](https://npmjs.com/package/jest-runner-prettier)", "INSERT_DESCRIPTION_HERE"],
-      ["[`jest-runner-stylelint`](https://npmjs.com/package/jest-runner-stylelint)", "INSERT_DESCRIPTION_HERE"],
-      ["[`jest-runner-tsc`](https://npmjs.com/package/jest-runner-tsc)", "INSERT_DESCRIPTION_HERE"],
-      ["[`jest-watch-master`](https://npmjs.com/package/jest-watch-master)", "INSERT_DESCRIPTION_HERE"],
+      [
+        "[`expect-puppeteer`](https://npmjs.com/package/expect-puppeteer)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`jest-chain`](https://npmjs.com/package/jest-chain)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`jest-dom`](https://npmjs.com/package/jest-dom)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`jest-html-reporters`](https://npmjs.com/package/jest-html-reporters)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`jest-image-snapshot`](https://npmjs.com/package/jest-image-snapshot)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`jest-json-schema`](https://npmjs.com/package/jest-json-schema)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`jest-preset-angular`](https://npmjs.com/package/jest-preset-angular)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`jest-puppeteer`](https://npmjs.com/package/jest-puppeteer)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`jest-runner-eslint`](https://npmjs.com/package/jest-runner-eslint)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`jest-runner-groups`](https://npmjs.com/package/jest-runner-groups)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`jest-runner-prettier`](https://npmjs.com/package/jest-runner-prettier)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`jest-runner-stylelint`](https://npmjs.com/package/jest-runner-stylelint)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`jest-runner-tsc`](https://npmjs.com/package/jest-runner-tsc)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`jest-watch-master`](https://npmjs.com/package/jest-watch-master)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
       [
         "[`jest-watch-select-projects`](https://npmjs.com/package/jest-watch-select-projects)",
         "INSERT_DESCRIPTION_HERE"
       ],
-      ["[`jest-watch-typeahead`](https://npmjs.com/package/jest-watch-typeahead)", "INSERT_DESCRIPTION_HERE"]
+      [
+        "[`jest-watch-typeahead`](https://npmjs.com/package/jest-watch-typeahead)",
+        "INSERT_DESCRIPTION_HERE"
+      ]
     ],
     "prettier": [
-      ["Prettier Plugin", "Description"],
-      ["[`@prettier/plugin-php`](https://npmjs.com/package/@prettier/plugin-php)", "INSERT_DESCRIPTION_HERE"],
-      ["[`@prettier/plugin-pug`](https://npmjs.com/package/@prettier/plugin-pug)", "INSERT_DESCRIPTION_HERE"],
-      ["[`@prettier/plugin-ruby`](https://npmjs.com/package/@prettier/plugin-ruby)", "INSERT_DESCRIPTION_HERE"],
-      ["[`@prettier/plugin-xml`](https://npmjs.com/package/@prettier/plugin-xml)", "INSERT_DESCRIPTION_HERE"],
+      [
+        "Prettier Plugin",
+        "Description"
+      ],
+      [
+        "[`@prettier/plugin-php`](https://npmjs.com/package/@prettier/plugin-php)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`@prettier/plugin-pug`](https://npmjs.com/package/@prettier/plugin-pug)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`@prettier/plugin-ruby`](https://npmjs.com/package/@prettier/plugin-ruby)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`@prettier/plugin-xml`](https://npmjs.com/package/@prettier/plugin-xml)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
       [
         "[`prettier-plugin-go-template`](https://npmjs.com/package/prettier-plugin-go-template)",
         "INSERT_DESCRIPTION_HERE"
       ],
-      ["[`prettier-plugin-ini`](https://npmjs.com/package/prettier-plugin-ini)", "INSERT_DESCRIPTION_HERE"],
-      ["[`prettier-plugin-java`](https://npmjs.com/package/prettier-plugin-java)", "INSERT_DESCRIPTION_HERE"],
+      [
+        "[`prettier-plugin-ini`](https://npmjs.com/package/prettier-plugin-ini)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`prettier-plugin-java`](https://npmjs.com/package/prettier-plugin-java)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
       [
         "[`prettier-plugin-organize-imports`](https://npmjs.com/package/prettier-plugin-organize-imports)",
         "INSERT_DESCRIPTION_HERE"
@@ -215,8 +374,14 @@
         "[`prettier-plugin-properties`](https://npmjs.com/package/prettier-plugin-properties)",
         "INSERT_DESCRIPTION_HERE"
       ],
-      ["[`prettier-plugin-sh`](https://npmjs.com/package/prettier-plugin-sh)", "INSERT_DESCRIPTION_HERE"],
-      ["[`prettier-plugin-solidity`](https://npmjs.com/package/prettier-plugin-solidity)", "INSERT_DESCRIPTION_HERE"]
+      [
+        "[`prettier-plugin-sh`](https://npmjs.com/package/prettier-plugin-sh)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`prettier-plugin-solidity`](https://npmjs.com/package/prettier-plugin-solidity)",
+        "INSERT_DESCRIPTION_HERE"
+      ]
     ]
   },
   "profile": {
