@@ -7,12 +7,12 @@ molecule-macos:
   stage: test
   extends:
     - .shared_macos_runners
+  allow_failure: true
   rules:
     - if: $CI_PIPELINE_SOURCE == 'schedule' || $CI_PIPELINE_SOURCE == 'web'
     - if: $CI_COMMIT_TITLE =~ /^(automation|chore).*/
       when: never
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
-      changes:
+    - changes:
         - '{defaults,files,handlers,meta,molecule,tasks,templates,vars}/**'
         - ansible.cfg
         - poetry.lock
@@ -20,5 +20,4 @@ molecule-macos:
         - requirements.yml
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'
   script:
-    - set -eo pipefail
-    - bash test/macos/test.sh
+    - bash test/darwin/test.sh

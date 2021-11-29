@@ -86,7 +86,7 @@ tasks:
 
   husky:permission:
     cmds:
-      - chmod +x "{{.FILE}}"
+      - if [ -f "{{.FILE}}" ]; then chmod +x "{{.FILE}}"; fi
     sources:
       - '{{.FILE}}'
 
@@ -204,19 +204,26 @@ tasks:
       * ubuntu-18.04
       * ubuntu-20.04
       * ubuntu-21.04
+    cmds:
+      - task: shell:{{if .CLI_ARGS}}cli{{else}}prompt{{end}}
+
+  shell:cli:
     vars:
       WORKDIR:
         sh: basename $PWD
     cmds:
-      - |
-        {{if .CLI_ARGS}}
-          docker run --cap-drop=ALL -it -v "$PWD:/{{.WORKDIR}}" -w /{{.WORKDIR}} --rm megabytelabs/ansible-molecule-{{.CLI_ARGS}}:latest /bin/bash
-        {{else}}
-          node .config/scripts/prompts/shell.js
-        {{end}}
-    preconditions:
-      - sh: 'type docker &> /dev/null'
-        msg: Docker is not installed.
+      - cmd: docker run --cap-drop=ALL -it -v "$PWD:/{{.WORKDIR}}" -w /{{.WORKDIR}} --rm megabytelabs/ansible-molecule-{{.CLI_ARGS}}:latest /bin/bash
+        ignore_error: true
+
+  shell:prompt:
+    deps:
+      - :install:modules:prompt
+    interactive: true
+    env:
+      WORKDIR:
+        sh: basename $PWD
+    cmds:
+      - node .config/scripts/prompts/shell.js
 
   update:
     deps:

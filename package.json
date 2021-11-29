@@ -28,7 +28,7 @@
   "description": "Bundles together an ambitious &#x60;semantic-release&#x60; shared configuration",
   "devDependencies": {
     "@commitlint/config-conventional": "^13.1.0",
-    "@mblabs/eslint-config": "^1.0.97",
+    "@mblabs/eslint-config": "^1.0.102",
     "@mblabs/prettier-config": "^14.14.14",
     "@megabytelabs/jest-preset": "^1.0.0",
     "@types/node": "^16.11.6",
@@ -149,8 +149,12 @@
     ]
   },
   "optionalDependencies": {
+    "chalk": "^5.0.0",
     "esbuild": "^0.13.15",
-    "esbuild-node-externals": "^1.3.0"
+    "esbuild-node-externals": "^1.3.0",
+    "inquirer": "^8.2.0",
+    "signale": "^1.4.0",
+    "string-break": "^1.2.0"
   },
   "prettier": "@mblabs/prettier-config",
   "private": false,
