@@ -73,7 +73,7 @@
   </p>
 </div>
 
-> </br><h3 align="center">**Bundles together an ambitious &#x60;semantic-release&#x60; shared configuration**</h3></br>
+> </br><h3 align="center">**Bundles together an ambitious semantic-release shared configuration**</h3></br>
 
 <!--TERMINALIZER![terminalizer_title](https://gitlab.com/megabyte-labs/npm/role_name/-/raw/master/.demo.gif)TERMINALIZER-->
 
