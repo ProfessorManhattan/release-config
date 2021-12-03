@@ -150,7 +150,7 @@
     ]
   },
   "main": "dist/main.js",
-  "name": "@mblabs/release-config",
+  "name": "@washingtondc/release",
   "nodemonConfig": {
     "exec": "tsc -p . && node --inspect-brk dist/main",
     "ext": "js,jsx,json,ts,tsx,yml",
@@ -190,5 +190,5 @@
   },
   "type": "module",
   "typings": "dist/main.d.ts",
-  "version": "1.1.14"
+  "version": "0.0.1"
 }
