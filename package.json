@@ -48,7 +48,7 @@
     "conventional-changelog-gitmoji-config": "^1.4.3",
     "semantic-release": "^18.0.1",
     "semantic-release-firefox-add-on": "^0.2.8",
-    "semantic-release-npm-deprecate": "^1.0.10",
+    "semantic-release-npm-deprecate-old-versions": "^1.3.2",
     "tslib": "^2.3.1"
   },
   "description": "Bundles together an ambitious semantic-release shared configuration",
