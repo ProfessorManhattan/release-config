@@ -43,6 +43,7 @@ tasks:
     desc: Generate the requirements.txt fallback file
     cmds:
       - mkdir -p .config
+      - poetry update
       - poetry export -f requirements.txt --output .config/requirements.txt --without-hashes
 
   run:
