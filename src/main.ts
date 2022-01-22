@@ -17,7 +17,6 @@ const assets = variables.releaseAssets ? variables.releaseAssets : DEFAULT_ASSET
 const npmPublish = packageVars.files && packageVars.files.length && (repoType === 'npm' || variables.npmPublish);
 
 const pyPiPublish = packageVars.files && packageVars.files.length && (repoType === 'python' || variables.pyPiPublish)
-const setup
 
 const githubOptions = {
     assets,
@@ -64,26 +63,13 @@ const plugins: any = [
   }
 ],
   [
-			"@semantic-release/exec",
+			"@semantic-release/exec", // Docker
 			{
-				"verifyConditionsCmd": "if [ 403 != $(curl -X POST -F \":action=file_upload\" -u __token__:$PYPI_TOKEN -s -o /dev/null -w \"%{http_code}\" $PYPI_REPOSITORY) ]; then (exit 0); else (echo \"Authentication error. Please check the PYPI_TOKEN environment variable.\" && exit 1); fi",
-				"prepareCmd": "poetry version ${nextRelease.version}",
-				"publishCmd": "if [ ! -f setup.py ] && [[ '" + pyPiPublish + "' == 'true' ]]; then poetry config repositories.repo $PYPI_REPOSITORY && poetry publish --build --repository repo --username __token__ --password $PYPI_TOKEN --no-interaction -vvv; fi"
+				"verifyConditionsCmd": "task docker:verify",
+				"prepareCmd": "task docker:prepare",
+				"publishCmd": "task docker:publish"
 			}
   ],
-  [
-			"@google/semantic-release-replace-plugin",
-			{
-				"replacements": [
-					{
-						"files": ["*/__init__.py"],
-						"ignore": ["test/*", "tests/*"],
-						"from": "__version__ = [\"'].*[\"']",
-						"to": "__version__ = \"${nextRelease.version}\""
-					}
-				]
-			}
-		],
 [
   '@semantic-release/gitlab',
   {
@@ -102,10 +88,6 @@ const plugins: any = [
       }
     ]
 ]
-
-plugins.push()
-
-
 
 /**
  * Add config logic here
