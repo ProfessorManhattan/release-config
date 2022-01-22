@@ -1,5 +1,4 @@
 import * as fs from 'node:fs'
-import { execSync } from 'node:child_process'
 import * as YAML from 'yaml'
 
 export const acquireProjectType = (): {
@@ -20,15 +19,13 @@ export const acquireProjectType = (): {
 export const acquireVariables = (): any => {
   if (fs.existsSync('./.variables.json')) {
     return JSON.parse(fs.readFileSync('./.variables.json'))
-  } else {
-    process.exit(1)
   }
+  return Error('package.json must be present in the project!')
 }
 
 export const acquirePackage = (): any => {
   if (fs.existsSync('./package.json')) {
     return JSON.parse(fs.readFileSync('package.json'))
-  } else {
-    process.exit(1)
   }
+  return Error('package.json must be present in the project!')
 }

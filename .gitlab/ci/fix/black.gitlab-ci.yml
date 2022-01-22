@@ -1,10 +1,12 @@
 ---
-black-fix:
+fix:black:
   stage: fix
   image:
     name: megabytelabs/yamllint:slim
     entrypoint: ['']
   rules:
+    - if: $DO_CI == 'false'
+      when: never
     - exists:
         - '**/*.py'
   variables:

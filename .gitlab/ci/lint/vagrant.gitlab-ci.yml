@@ -1,13 +1,18 @@
 ---
-vagrant-validate:
+vagrant:validate:
   stage: lint
   image:
     name: megabytelabs/vagrant:slim
     entrypoint: ['']
   allow_failure: true
   rules:
+    - if: $DO_CI == 'false'
+      when: never
+    - if: $CI_COMMIT_BRANCH == 'synchronize'
+      when: never
     - exists:
         - '**/Vagrantfile'
+  needs: []
   variables:
     GIT_DEPTH: 1
   script:

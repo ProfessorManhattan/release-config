@@ -1,10 +1,16 @@
 ---
-prettier:
+lint:prettier:
   stage: lint
   image:
     name: megabytelabs/prettier-write:slim
     entrypoint: ['']
   allow_failure: true
+  rules:
+    - if: $DO_CI == 'false'
+      when: never
+    - if: $CI_COMMIT_BRANCH == 'synchronize'
+      when: never
+  needs: []
   variables:
     GIT_DEPTH: 1
     NODE_MODULES_PATH: /usr/local/lib/node_modules

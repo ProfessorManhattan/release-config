@@ -1,22 +1,41 @@
 ---
-molecule-osx:
+test:molecule:darwin:
   stage: test
-  image: megabytelabs/molecule:latest
-  services:
-    - docker:dind
-  allow_failure: true
+  image: macos-11-xcode-12
   rules:
+    - if: $DO_CI == 'false'
+      when: never
     - if: $CI_COMMIT_TITLE =~ /^(automation|chore).*/
       when: never
-    - changes:
-        - main.yml
+    - if: $CI_COMMIT_BRANCH == 'synchronize'
+      when: never
+    - if: $CI_COMMIT_BRANCH == 'test/darwin'
     - if: $CI_PIPELINE_SOURCE == 'schedule' || $CI_PIPELINE_SOURCE == 'web'
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'
+      changes:
+        - main.yml
+  needs: []
   variables:
-    DOCKER_CERT_PATH: $DOCKER_TLS_CERTDIR/client
-    DOCKER_HOST: tcp://docker:2376
-    DOCKER_TLS_CERTDIR: /certs
-    DOCKER_TLS_VERIFY: 1
     GIT_DEPTH: 1
+  tags:
+    - shared-macos-amd64
   script:
-    - set -eo pipefail
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == 'test/darwin' ]]; then
+        git pull origin master
+        git push origin "$CI_COMMIT_BRANCH"
+      fi
+    - brew install coreutils findutils gnu-sed grep gnu-tar gawk
+    - export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
+    - export PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
+    - export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
+    - export PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
+    - export PATH="$(brew --prefix)/opt/gnu-tar/libexec/gnubin:$PATH"
+    - brew install node python@3.10 poetry
+    - bash .config/scripts/start.sh
+    - task environment -- dev
+    - OPTIMIZED_IMAGE=false task ansible:test:molecule:local:test
+  artifacts:
+    when: always
+    reports:
+      junit: molecule/.results/junit/*.xml

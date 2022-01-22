@@ -1,9 +1,14 @@
 ---
-gitlab-registry:
+publish:gitlab:registry:
   stage: test
   image: docker
   services:
     - docker:dind
+  rules:
+    - if: $DO_CI == 'false'
+      when: never
+    - if: $CI_COMMIT_BRANCH == 'synchronize'
+      when: never
   variables:
     DOCKER_CERT_PATH: $DOCKER_TLS_CERTDIR/client
     DOCKER_HOST: tcp://docker:2376

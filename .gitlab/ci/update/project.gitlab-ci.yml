@@ -1,9 +1,11 @@
 ---
-update:
+update:project:
   stage: update
-  image: megabytelabs/updater:slim
+  image: $UPDATER_IMAGE
   rules:
-    - if: ($CI_PIPELINE_SOURCE == 'pipeline' || $CI_PIPELINE_SOURCE == 'web') && $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+    - if: $DO_CI == 'false'
+      when: never
+    - if: ($CI_PIPELINE_SOURCE == 'pipeline' || $CI_PIPELINE_SOURCE == 'web') && $CI_COMMIT_REF_NAME == 'synchronize'
   variables:
     GIT_DEPTH: 1
     GIT_SUBMODULE_STRATEGY: recursive
@@ -16,9 +18,14 @@ update:
       - .pnpm-store/
       - .venv/
   before_script:
+    - if [ "${UPDATER_IMAGE:0:20}" != 'megabytelabs/updater' ]; then bash .config/scripts/start.sh; fi
     - if [ -n "$UPDATE_INIT_SCRIPT" ]; then curl -s "$UPDATE_INIT_SCRIPT" | bash; fi
     - task ci:before
   script:
+    - . "$HOME/.profile"
+    - poetry --version
     - task ci:submodules
     - task start
+    - if [ "$REPOSITORY_UPDATE" == 'true' ]; then task services; fi
     - task ci:commit
+    - task ci:synchronize

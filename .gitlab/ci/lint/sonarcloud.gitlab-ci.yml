@@ -8,6 +8,12 @@ sonarcloud:
     - merge_requests
     - master
     - develop
+  rules:
+    - if: $DO_CI == 'false'
+      when: never
+    - if: $CI_COMMIT_BRANCH == 'synchronize'
+      when: never
+  needs: []
   variables:
     GIT_DEPTH: '0'
     SONAR_USER_HOME: '${CI_PROJECT_DIR}/.sonar'

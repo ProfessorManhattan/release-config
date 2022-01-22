@@ -1,14 +1,14 @@
 [tool.poetry]
 name = "release-config"
-version = "1.1.14"
-description = "Bundles together an ambitious semantic-release shared configuration"
+version = "0.0.2"
+description = "Bundles together an ambitious semantic-release shared configuration used across many project types"
 authors = ["Brian Zalewski <brian@megabyte.space>"]
 license = "MIT"
 readme = "README.md"
 homepage = "https://megabyte.space"
 documentation = "https://megabyte.space/docs/npm/config"
-keywords = ["bundle", "chrome", "config", "exec", "firefox", "git", "github", "gitlab", "library", "megabytelabs", "npm", "package", "professormanhattan", "release", "semantic"]
-include = ["CHANGELOG.md", "LICENSE"]
+keywords = ["bundle", "chrome", "config", "exec", "firefox", "git", "github", "gitlab", "library", "mblabs", "megabytelabs", "npm", "package", "professormanhattan", "release", "semantic", "washingtondc"]
+include = ["docs/CHANGELOG.md", "LICENSE"]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Development Status :: 5 - Production/Stable",
@@ -48,7 +48,7 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.7.0,<4.0.0"
+python = ">=3.10.0,<4.0.0"
 
 [tool.poetry.dev-dependencies]
 blocklint = "^0.2.3"

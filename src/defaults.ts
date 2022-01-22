@@ -1,49 +1,49 @@
 export const DEFAULT_RELEASE_RULES = [
-				{
-					"type": "build",
-					"release": "patch"
-				},
-				{
-					"type": "ci",
-					"release": "patch"
-				},
-				{
-					"type": "chore",
-					"release": false
-				},
-				{
-					"type": "docs",
-					"release": false
-				},
-        {
-          "type": "fix",
-          "release": "patch"
-        },
-        {
-          "type": "feat",
-          "release": "minor"
-        },
-				{
-					"type": "refactor",
-					"release": "patch"
-				},
-        {
-          "type": "revert",
-          "release": "patch"
-        },
-        {
-          "type": "perf",
-          "release": "patch"
-        },
-				{
-					"type": "style",
-					"release": false
-				},
-				{
-					"type": "test",
-					"release": false
-				}
-			]
+  {
+    release: 'patch',
+    type: 'build'
+  },
+  {
+    release: 'patch',
+    type: 'ci'
+  },
+  {
+    release: false,
+    type: 'chore'
+  },
+  {
+    release: false,
+    type: 'docs'
+  },
+  {
+    release: 'patch',
+    type: 'fix'
+  },
+  {
+    release: 'minor',
+    type: 'feat'
+  },
+  {
+    release: 'patch',
+    type: 'refactor'
+  },
+  {
+    release: 'patch',
+    type: 'revert'
+  },
+  {
+    release: 'patch',
+    type: 'perf'
+  },
+  {
+    release: false,
+    type: 'style'
+  },
+  {
+    release: false,
+    type: 'test'
+  }
+]
 
 export const DEFAULT_PACKAGE_FILES = [
   'README.md',
@@ -56,5 +56,9 @@ export const DEFAULT_PACKAGE_FILES = [
 ]
 
 export const DEFAULT_ASSETS_FILES = [
-  { path: ['bin/**', 'dist/**', 'package.json'], name: 'Source', label: 'Compiled source code (including package.json)' }
+  {
+    label: 'Compiled source code (including package.json)',
+    name: 'Source',
+    path: ['bin/**', 'dist/**', 'package.json']
+  }
 ]

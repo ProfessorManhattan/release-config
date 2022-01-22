@@ -1,10 +1,12 @@
 ---
-eslint-fix:
+fix:eslint:
   stage: fix
   image:
     name: megabytelabs/yamllint:slim
     entrypoint: ['']
   rules:
+    - if: $DO_CI == 'false'
+      when: never
     - exists:
         - '**/*.{js,jsx,json,json.handlebars,toml,ts,tsx,yml}'
   variables:
