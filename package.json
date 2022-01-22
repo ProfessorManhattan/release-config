@@ -125,7 +125,18 @@
     "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
   "eslintConfig": {
-    "extends": "eslint-config-strict-mode"
+    "extends": "eslint-config-strict-mode",
+    "rules": {
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/tslint/config": "warn",
+      "max-len": "warn",
+      "max-lines-per-function": "warn",
+      "max-params": "warn",
+      "no-multi-str": "warn",
+      "no-template-curly-in-string": "warn",
+      "switch-case/no-case-curly": "warn",
+      "yml/sort-keys": "warn"
+    }
   },
   "funding": [
     {
