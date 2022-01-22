@@ -1,9 +1,10 @@
 {
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
   "blueprint": {
-    "description": "Bundles together an ambitious semantic-release shared configuration",
+    "description": "Bundles together an ambitious semantic-release shared configuration used across many project types",
     "group": "npm",
-    "name": "Release Config",
+    "subheader_description": "A semantic-release shared config for GitHub, GitLab, NPM, PyPi, Docker, and more!",
+    "name": "Semantic Release Config",
     "overview": "[semantic-release](https://www.npmjs.com/package/semantic-release) automates the process of releasing packages to a wide variety of target eco-systems. This package bundles together the dependencies required for automatically releasing assets to npmjs.org, gitlab.com, github.com, and pypi.org. It also includes the ability to run shell scripts throughout the `semantic-release` flow among a few other features that you will have to find as easter eggs.",
     "repository": {
       "github": "https://github.com/ProfessorManhattan/release-config",
@@ -11,7 +12,7 @@
     },
     "slug": "release-config",
     "subgroup": "config",
-    "title": "A Big Bundle of Software Release Automation Plugins"
+    "title": "A Big Bundle of Release Automation Plugins"
   },
   "bugs": {
     "email": "help@megabyte.space",
@@ -49,6 +50,7 @@
     "semantic-release": "^18.0.1",
     "semantic-release-firefox-add-on": "^0.2.8",
     "semantic-release-npm-deprecate-old-versions": "^1.3.2",
+    "semantic-release-python": "^2.5.1",
     "tslib": "^2.3.1"
   },
   "description": "Bundles together an ambitious semantic-release shared configuration",

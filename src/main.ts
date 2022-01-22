@@ -83,7 +83,7 @@ const plugins: any = [
 [
       '@semantic-release/git',
       {
-        message: 'chore(release): v${nextRelease.version}\n\n${nextRelease.notes}',
+        message: 'chore(release): version ${nextRelease.version}\n\n${nextRelease.notes}',
         assets: files
       }
     ]
