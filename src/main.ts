@@ -125,21 +125,6 @@ const plugins: any = [
       // eslint-disable-next-line no-template-curly-in-string
       message: 'chore(release): version ${nextRelease.version}\n\n${nextRelease.notes}'
     }
-  ],
-  [
-      "semantic-release-slack-bot",
-      {
-        "notifyOnSuccess": false,
-        "notifyOnFail": true,
-        "slackChannel": "ci",
-        "branchesConfig": [
-          {
-            "pattern": "master",
-            "notifyOnSuccess": true,
-            "notifyOnFail": true
-          }
-        ]
-      }
   ]
 ]
 
