@@ -1,25 +1,24 @@
+import * as fs from 'node:fs'
 import { customTransformer } from './custom-transformer'
 import { DEFAULT_ASSETS_FILES, DEFAULT_PACKAGE_FILES, DEFAULT_RELEASE_RULES } from './defaults'
 import { githubSuccessComment } from './github'
 import { acquirePackage, acquireProjectType, acquireVariables } from './project'
 
+// Taskfile.yml
 const taskfile = acquireProjectType()
 const repoType = taskfile.vars.REPOSITORY_TYPE
 const repoSubType = taskfile.vars.REPOSITORY_SUBTYPE
 
+// .variables.json
 const variables = acquireVariables()
 const releaseRules = variables.releaseRules ? variables.releaseRules : DEFAULT_RELEASE_RULES
 
+// package.json
 const packageVariables = acquirePackage()
 const files = packageVariables.files ? packageVariables.files : DEFAULT_PACKAGE_FILES
 const assets = variables.releaseAssets ? variables.releaseAssets : DEFAULT_ASSETS_FILES
 
-const npmPublish =
-  packageVariables.files && packageVariables.files.length > 0 && (repoType === 'npm' || variables.npmPublish)
-
-const pyPiPublish =
-  packageVariables.files && packageVariables.files.length > 0 && (repoType === 'python' || variables.pyPiPublish)
-
+// GitHub
 const githubOptions = {
   addReleases: 'bottom',
   assets,
@@ -29,6 +28,48 @@ const githubOptions = {
   labels: false,
   successComment: githubSuccessComment(repoType, repoSubType, variables, packageVariables)
 }
+
+// NPM
+const npmPublish =
+  packageVariables.files && packageVariables.files.length > 0 && (repoType === 'npm' || variables.npmPublish)
+
+// Python
+const pyPiPublish =
+  packageVariables.files && packageVariables.files.length > 0 && (repoType === 'python' || variables.pyPiPublish)
+
+// Docker
+const dockerPublish = fs.existsSync('Dockerfile') && (repoType == 'docker' || variables.dockerPublish)
+const dockerPlugin = [
+    '@semantic-release/exec',
+    {
+      prepareCmd: 'task docker:prepare',
+      publishCmd: 'task docker:publish',
+      verifyConditionsCmd: 'task docker:verify'
+    }
+  ]
+
+// Go
+const goPublish = repoType === 'go' && repoSubType === 'cli'
+const goPlugin = [
+  '@semantic-release/exec',
+  {
+    prepareCmd: 'task go:goreleaser:build',
+    publishCmd: 'task go:goreleaser:release',
+    verifyConditionsCmd: 'task go:goreleaser:check'
+  }
+]
+
+
+// Packer
+const packerPublish = repoType === 'packer'
+const packerPlugin = [
+  '@semantic-release/exec',
+  {
+    prepareCmd: 'task packer:prepare',
+    publishCmd: 'task packer:publish',
+    verifyConditionsCmd: 'task packer:verify'
+  }
+]
 
 const plugins: any = [
   [
@@ -67,14 +108,9 @@ const plugins: any = [
       pypiPublish: pyPiPublish
     }
   ],
-  [
-    '@semantic-release/exec',
-    {
-      prepareCmd: 'task docker:prepare',
-      publishCmd: 'task docker:publish',
-      verifyConditionsCmd: 'task docker:verify'
-    }
-  ],
+  dockerPublish ? dockerPlugin : [],
+  goPublish ? goPlugin : [],
+  packerPublish ? packerPlugin : [],
   [
     '@semantic-release/gitlab',
     {
@@ -89,6 +125,21 @@ const plugins: any = [
       // eslint-disable-next-line no-template-curly-in-string
       message: 'chore(release): version ${nextRelease.version}\n\n${nextRelease.notes}'
     }
+  ],
+  [
+      "semantic-release-slack-bot",
+      {
+        "notifyOnSuccess": false,
+        "notifyOnFail": true,
+        "slackChannel": "ci",
+        "branchesConfig": [
+          {
+            "pattern": "master",
+            "notifyOnSuccess": true,
+            "notifyOnFail": true
+          }
+        ]
+      }
   ]
 ]
 
@@ -97,5 +148,3 @@ module.exports = {
   plugins,
   writerOpts: { transform: customTransformer }
 }
-
-export default createConfig
