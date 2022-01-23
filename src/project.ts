@@ -18,7 +18,7 @@ export const acquireProjectType = (): {
 
 export const acquireVariables = (): any => {
   if (fs.existsSync('./.variables.json')) {
-    return JSON.parse(fs.readFileSync('./.variables.json'))
+    return JSON.parse(fs.readFileSync('./.variables.json').toString())
   }
 
   return new Error('package.json must be present in the project!')
@@ -26,7 +26,7 @@ export const acquireVariables = (): any => {
 
 export const acquirePackage = (): any => {
   if (fs.existsSync('./package.json')) {
-    return JSON.parse(fs.readFileSync('package.json'))
+    return JSON.parse(fs.readFileSync('package.json').toString())
   }
 
   return new Error('package.json must be present in the project!')
