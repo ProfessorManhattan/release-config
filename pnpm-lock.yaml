@@ -31,7 +31,7 @@ specifiers:
   conventional-changelog-gitmoji-config: ^1.4.3
   esbuild: ^0.13.15
   esbuild-node-externals: ^1.3.0
-  eslint-config-strict-mode: ^1.0.0
+  eslint-config-strict-mode: ^1.0.28
   semantic-release: ^18.0.1
   semantic-release-firefox-add-on: ^0.2.8
   semantic-release-npm-deprecate-old-versions: ^1.3.2
@@ -79,7 +79,7 @@ devDependencies:
   '@washingtondc/development': 1.0.10_@types+node@16.11.11
   '@washingtondc/prettier': 1.0.0
   '@washingtondc/release': 0.0.2
-  eslint-config-strict-mode: 1.0.27
+  eslint-config-strict-mode: 1.0.28
   sleekfast: 0.0.1
 
 packages:
@@ -2321,22 +2321,6 @@ packages:
     resolution: {integrity: sha512-A1b8SU4D10uoPjwb0lnHmmu8wZhR9d+9o2PKBQT2jU5YPTKsxac6M2qGAdY7VcL+dHHhARVUDmeg0rOrcd9EjA==}
     dependencies:
       '@types/node': 16.11.11
-
-  /@typescript-eslint/eslint-plugin-tslint/5.10.0_eslint@8.7.0+tslint@6.1.3:
-    resolution: {integrity: sha512-AnawlMlCWG+dzN9Bgvo0XFREEgAl6SdyggbJrhXfHl74P7ptPRqLgIUETvH1ND2PYYP79+BCdOVlQzTt/HZK4g==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-      tslint: ^5.0.0 || ^6.0.0
-      typescript: '*'
-    dependencies:
-      '@typescript-eslint/utils': 5.10.0_eslint@8.7.0
-      eslint: 8.7.0
-      lodash: 4.17.21
-      tslint: 6.1.3
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
 
   /@typescript-eslint/eslint-plugin/5.10.0_dac6134a22fe1289d58145b0b92ae060:
     resolution: {integrity: sha512-XXVKnMsq2fuu9K2KsIxPUGqb6xAImz8MEChClbXmE3VbveFtBUU5bzM6IPVWqzyADIgdkS2Ws/6Xo7W2TeZWjQ==}
@@ -5497,12 +5481,11 @@ packages:
       eslint: 8.7.0
     dev: true
 
-  /eslint-config-strict-mode/1.0.27:
-    resolution: {integrity: sha512-R9hGuxFXoMJo7B1QjbGH8PJiOXk3BY7rbXSuVd8js8lGFRiDBjfiQVNXkH0JY/BoiXYrxrqDbBItDiSD/PjFaA==}
+  /eslint-config-strict-mode/1.0.28:
+    resolution: {integrity: sha512-4f/cDnvfoyLf4zj/QhIvYzCeWR5cqf+qKzOvel6HKHp4ILjawGcwBc5h+J03TIKrJezLf7y74u6Udm8y5HWbHg==}
     engines: {node: '>=14.18.0'}
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.10.0_dac6134a22fe1289d58145b0b92ae060
-      '@typescript-eslint/eslint-plugin-tslint': 5.10.0_eslint@8.7.0+tslint@6.1.3
       '@typescript-eslint/parser': 5.10.0_eslint@8.7.0
       eslint: 8.7.0
       eslint-config-prettier: 8.3.0_eslint@8.7.0
