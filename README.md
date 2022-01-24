@@ -79,6 +79,8 @@
 - **PyPi**: Publishes Python projects to pypi.org
 - **Docker**: Publishes to DockerHub or a registry of your choice
 - **VagrantUp**: Builds VMs with Packer and then publishes them to VagrantUp
+- **Go**: Uses GitHub/GitLab Releases
+- **Ansible**: Publishes Ansible roles to Ansible Galaxy
 
 The configuration can be easily modified to accomodate your specific needs (like most semantic-release shared configurations). A good amount of the actual logic for verifying and compiling assets in this particular configuration is housed in our Taskfile.yml file. The [Taskfile.yml project](https://taskfile.dev/#/) is awesome project you should totally check out. We even created a more flavorful variant called [Bodega](https://github.com/ProfessorManhattan/Bodega).
 
