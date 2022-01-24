@@ -129,7 +129,6 @@
     "extends": "eslint-config-strict-mode",
     "rules": {
       "@typescript-eslint/no-explicit-any": "warn",
-      "@typescript-eslint/tslint/config": "warn",
       "max-len": "warn",
       "max-lines-per-function": "warn",
       "max-params": "warn",

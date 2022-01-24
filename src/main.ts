@@ -4,6 +4,8 @@ import { DEFAULT_ASSETS_FILES, DEFAULT_PACKAGE_FILES, DEFAULT_RELEASE_RULES } fr
 import { githubSuccessComment } from './github'
 import { acquirePackage, acquireProjectType, acquireVariables } from './project'
 
+const semanticExec = '@semantic-release/exec'
+
 // Taskfile.yml
 const taskfile = acquireProjectType()
 const repoType = taskfile.vars.REPOSITORY_TYPE
@@ -38,9 +40,9 @@ const pyPiPublish =
   packageVariables.files && packageVariables.files.length > 0 && (repoType === 'python' || variables.pyPiPublish)
 
 // Docker
-const dockerPublish = fs.existsSync('Dockerfile') && (repoType == 'docker' || variables.dockerPublish)
+const dockerPublish = fs.existsSync('Dockerfile') && (repoType === 'docker' || variables.dockerPublish)
 const dockerPlugin = [
-  '@semantic-release/exec',
+  semanticExec,
   {
     prepareCmd: 'task docker:prepare',
     publishCmd: 'task docker:publish',
@@ -51,7 +53,7 @@ const dockerPlugin = [
 // Go
 const goPublish = repoType === 'go' && repoSubType === 'cli'
 const goPlugin = [
-  '@semantic-release/exec',
+  semanticExec,
   {
     prepareCmd: 'task go:goreleaser:build',
     publishCmd: 'task go:goreleaser:release',
@@ -62,7 +64,7 @@ const goPlugin = [
 // Packer
 const packerPublish = repoType === 'packer'
 const packerPlugin = [
-  '@semantic-release/exec',
+  semanticExec,
   {
     prepareCmd: 'task packer:prepare',
     publishCmd: 'task packer:publish',
@@ -73,7 +75,7 @@ const packerPlugin = [
 // Ansible
 const ansiblePublish = repoType === 'ansible' && repoSubType === 'role'
 const ansiblePlugin = [
-  '@semantic-release/exec',
+  semanticExec,
   {
     prepareCmd: 'task ansible:prepare',
     publishCmd: 'task ansible:publish',
