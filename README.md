@@ -6,7 +6,7 @@
   </center>
 </div>
 <div align="center">
-  <center><h1 align="center">Config: A Big Bundle of Release Automation Plugins<i></i></h1></center>
+  <center><h1 align="center">Config: An Ambitious Semantic Release Config<i></i></h1></center>
   <center><h4 style="color: #18c3d1;">A configuration managed by <a href="https://megabyte.space" target="_blank">Megabyte Labs</a></h4><i></i></center>
 </div>
 
@@ -29,23 +29,23 @@
     </a>
   </h4>
   <p align="center">
-    <a href="website.npm_package/@mblabs/release-config" target="_blank">
+    <a href="website.npm_package/semantic-release-config" target="_blank">
       <img alt="Version: 0.0.2" src="https://img.shields.io/badge/version-0.0.2-blue.svg?cacheSeconds=2592000&style=for-the-badge" />
     </a>
     <a href="https://gitlab.com/megabyte-labs/npm/release-config/commits/master" title="GitLab CI build status" target="_blank">
       <img alt="Build status" src="https://gitlab.com/megabyte-labs/npm/release-config/badges/master/pipeline.svg">
     </a>
-    <a href="website.npm_package/@mblabs/release-config" title="Dependency status reported by Depfu">
+    <a href="website.npm_package/semantic-release-config" title="Dependency status reported by Depfu">
       <img alt="Dependency status reported by Depfu" src="https://img.shields.io/depfu/megabyte-labs/npm-release-config?style=for-the-badge&logo=npm" />
     </a>
-    <a href="website.npm_package/@mblabs/release-config" title="Zip file size">
-      <img alt="Zip file size" src="https://img.shields.io/bundlephobia/minzip/@mblabs/release-config?style=bad_style&logo=npm" />
+    <a href="website.npm_package/semantic-release-config" title="Zip file size">
+      <img alt="Zip file size" src="https://img.shields.io/bundlephobia/minzip/semantic-release-config?style=bad_style&logo=npm" />
     </a>
-    <a href="" title="Total downloads of @mblabs/release-config on npmjs.org">
-      <img alt="Total downloads of @mblabs/release-config on npmjs.org" src="https://img.shields.io/npm/dt/@mblabs/release-config?logo=npm&style=for-the-badge&logo=npm" />
+    <a href="" title="Total downloads of semantic-release-config on npmjs.org">
+      <img alt="Total downloads of semantic-release-config on npmjs.org" src="https://img.shields.io/npm/dt/semantic-release-config?logo=npm&style=for-the-badge&logo=npm" />
     </a>
-    <a href="website.npm_package/@mblabs/release-config" title="Number of vulnerabilities from Snyk scan on @mblabs/release-config">
-      <img alt="Number of vulnerabilities from Snyk scan on @mblabs/release-config" src="https://img.shields.io/snyk/vulnerabilities/npm/@mblabs/release-config?style=for-the-badge&logo=npm" />
+    <a href="website.npm_package/semantic-release-config" title="Number of vulnerabilities from Snyk scan on semantic-release-config">
+      <img alt="Number of vulnerabilities from Snyk scan on semantic-release-config" src="https://img.shields.io/snyk/vulnerabilities/npm/semantic-release-config?style=for-the-badge&logo=npm" />
     </a>
     <a href="website.documentation/npm" target="_blank">
       <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg?logo=readthedocs&style=for-the-badge" />
@@ -71,7 +71,16 @@
 
 ## Overview
 
-[semantic-release](https://www.npmjs.com/package/semantic-release) automates the process of releasing packages to a wide variety of target eco-systems. This package bundles together the dependencies required for automatically releasing assets to npmjs.org, gitlab.com, github.com, and pypi.org. It also includes the ability to run shell scripts throughout the `semantic-release` flow among a few other features that you will have to find as easter eggs.
+[semantic-release](https://www.npmjs.com/package/semantic-release) automates the process of releasing packages to a wide variety of target eco-systems. This package bundles together the dependencies required for automatically releasing assets for the following project types:
+
+- **NPM**: Publishes to npmjs.org
+- **GitLab**: Publishes to GitLab Releases
+- **GitHub**: Publishes to GitHub Releases
+- **PyPi**: Publishes Python projects to pypi.org
+- **Docker**: Publishes to DockerHub or a registry of your choice
+- **VagrantUp**: Builds VMs with Packer and then publishes them to VagrantUp
+
+The configuration can be easily modified to accomodate your specific needs (like most semantic-release shared configurations). A good amount of the actual logic for verifying and compiling assets in this particular configuration is housed in our Taskfile.yml file. The [Taskfile.yml project](https://taskfile.dev/#/) is awesome project you should totally check out. We even created a more flavorful variant called [Bodega](https://github.com/ProfessorManhattan/Bodega).
 
 <a href="#requirements" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
 

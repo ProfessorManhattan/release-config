@@ -13,7 +13,7 @@ const repoSubType = taskfile.vars.REPOSITORY_SUBTYPE
 const variables = acquireVariables()
 const releaseRules = variables.releaseRules ? variables.releaseRules : DEFAULT_RELEASE_RULES
 
-// package.json
+// Package.json
 const packageVariables = acquirePackage()
 const files = packageVariables.files ? packageVariables.files : DEFAULT_PACKAGE_FILES
 const assets = variables.releaseAssets ? variables.releaseAssets : DEFAULT_ASSETS_FILES
@@ -40,13 +40,13 @@ const pyPiPublish =
 // Docker
 const dockerPublish = fs.existsSync('Dockerfile') && (repoType == 'docker' || variables.dockerPublish)
 const dockerPlugin = [
-    '@semantic-release/exec',
-    {
-      prepareCmd: 'task docker:prepare',
-      publishCmd: 'task docker:publish',
-      verifyConditionsCmd: 'task docker:verify'
-    }
-  ]
+  '@semantic-release/exec',
+  {
+    prepareCmd: 'task docker:prepare',
+    publishCmd: 'task docker:publish',
+    verifyConditionsCmd: 'task docker:verify'
+  }
+]
 
 // Go
 const goPublish = repoType === 'go' && repoSubType === 'cli'
@@ -59,7 +59,6 @@ const goPlugin = [
   }
 ]
 
-
 // Packer
 const packerPublish = repoType === 'packer'
 const packerPlugin = [
@@ -68,6 +67,17 @@ const packerPlugin = [
     prepareCmd: 'task packer:prepare',
     publishCmd: 'task packer:publish',
     verifyConditionsCmd: 'task packer:verify'
+  }
+]
+
+// Ansible
+const ansiblePublish = repoType === 'ansible' && repoSubType === 'role'
+const ansiblePlugin = [
+  '@semantic-release/exec',
+  {
+    prepareCmd: 'task ansible:prepare',
+    publishCmd: 'task ansible:publish',
+    verifyConditionsCmd: 'task ansible:verify'
   }
 ]
 
@@ -125,7 +135,8 @@ const plugins: any = [
       // eslint-disable-next-line no-template-curly-in-string
       message: 'chore(release): version ${nextRelease.version}\n\n${nextRelease.notes}'
     }
-  ]
+  ],
+  ansiblePublish ? ansiblePlugin : []
 ]
 
 // eslint-disable-next-line unicorn/prefer-module

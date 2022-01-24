@@ -1,6 +1,37 @@
 ---
 version: '3'
+
+output: interleaved
+
+vars:
+  DOCKERHUB_PROFILE: megabytelabs
+  DOCKERHUB_USER: professormanhattan
+  GITHUB_ORG: ProfessorManhattan
+  GITHUB_USER: ProfessorManhattan
+  IGNORE_FOLDERS: -path './.autodoc/*' -o -path './.cache/*' -o -path './.common*' -o -path './.config/*' -o -path './.git/*'
+    -o -path './.github/*' -o -path './.gitlab/*' -o -path './.husky/*' -o -path './.modules/*' -o -path './.npm/*'
+    -o -path './.pnpm-store/*' -o -path './.shared/*' -o -path './.task/*' -o -path './.venv/*' -o -path './.vscode/*'
+    -o -path './build/*' -o -path './dist/*' -o -path './node_modules/*' -o -path './roles/*' -o -name pnpm-lock.yaml
+    -o -name package-lock.json -o -name poetry.lock -o -name '.variables.json'
+  INIT_SCRIPT: https://gitlab.com/megabyte-labs/common/shared/-/raw/master/common/.gitlab/ci/scripts/update-init.sh
+  LOG_FIX:
+    sh: chmod +x .config/log && echo "heyhey"
+  NPM_KEEP_UPDATED: '@washingtondc/* eslint-config-strict-mode sleekfast'
+  NPM_PROGRAM: npm
+  NPM_PROGRAM_LOCAL: pnpm
+  NPX_HANDLE: 'pnpx '
+  NPX_PACKAGE: pnpx
+  PYTHON_HANDLE:
+    sh: if [ -z "$GITLAB_CI" ] || [[ "$OPTIMIZED_IMAGE" == 'false' ]]; then echo 'poetry run '; fi
+  PYTHON_VIRTUALENV: true
+  REPOSITORY_SUBTYPE: config
+  REPOSITORY_TYPE: npm
+  TIMEZONE: America/New_York
+
 includes:
+  project:
+    taskfile: Taskfile-project.yml
+    optional: true
   ansible: ./.config/taskfiles/ansible/Taskfile.yml
   ansible:ansibler: ./.config/taskfiles/ansible/Taskfile-ansibler.yml
   ansible:playbook: ./.config/taskfiles/ansible/Taskfile-playbook.yml
@@ -20,11 +51,9 @@ includes:
   git: ./.config/taskfiles/git/Taskfile.yml
   git:github: ./.config/taskfiles/git/Taskfile-github.yml
   git:gitlab: ./.config/taskfiles/git/Taskfile-gitlab.yml
-  project:
-    taskfile: Taskfile-project.yml
-    optional: true
   git:hook: ./.config/taskfiles/git/Taskfile-hook.yml
   go: ./.config/taskfiles/go/Taskfile.yml
+  go:goreleaser: ./.config/taskfiles/go/Taskfile-goreleaser.yml
   go:test: ./.config/taskfiles/go/Taskfile-test.yml
   image: ./.config/taskfiles/image/Taskfile.yml
   install: ./.config/taskfiles/install/Taskfile.yml
@@ -53,6 +82,7 @@ includes:
   publish:opera: ./.config/taskfiles/publish/Taskfile-opera.yml
   python: ./.config/taskfiles/python/Taskfile.yml
   python:test: ./.config/taskfiles/python/Taskfile-test.yml
+  release: ./.config/taskfiles/release/Taskfile.yml
   security: ./.config/taskfiles/security/Taskfile.yml
   symlink: ./.config/taskfiles/symlink/Taskfile.yml
   upstream: ./.config/taskfiles/upstream/Taskfile.yml
@@ -66,27 +96,7 @@ includes:
   web:ionic: ./.config/taskfiles/web/Taskfile-ionic.yml
   web:nx: ./.config/taskfiles/web/Taskfile-nx.yml
   web:profile: ./.config/taskfiles/web/Taskfile-profile.yml
-output: interleaved
-vars:
-  DOCKERHUB_PROFILE: megabytelabs
-  DOCKERHUB_USER: professormanhattan
-  GITHUB_ORG: ProfessorManhattan
-  GITHUB_USER: ProfessorManhattan
-  IGNORE_FOLDERS: -path './.autodoc/*' -o -path './.cache/*' -o -path './.common*' -o -path './.config/*' -o -path './.git/*' -o -path './.github/*' -o -path './.gitlab/*' -o -path './.husky/*' -o -path './.modules/*' -o -path './.npm/*' -o -path './.pnpm-store/*' -o -path './.shared/*' -o -path './.task/*' -o -path './.venv/*' -o -path './.vscode/*' -o -path './build/*' -o -path './dist/*' -o -path './node_modules/*' -o -path './roles/*' -o -name pnpm-lock.yaml -o -name package-lock.json -o -name poetry.lock -o -name '.variables.json'
-  INIT_SCRIPT: https://gitlab.com/megabyte-labs/common/shared/-/raw/master/common/.gitlab/ci/scripts/update-init.sh
-  LOG_FIX:
-    sh: chmod +x .config/log && echo "heyhey"
-  NPM_KEEP_UPDATED: '@washingtondc/* eslint-config-strict-mode sleekfast'
-  NPM_PROGRAM: npm
-  NPM_PROGRAM_LOCAL: pnpm
-  NPX_HANDLE: 'pnpx '
-  NPX_PACKAGE: pnpx
-  PYTHON_HANDLE:
-    sh: if [ -z "$GITLAB_CI" ] || [[ "$OPTIMIZED_IMAGE" == 'false' ]]; then echo 'poetry run '; fi
-  PYTHON_VIRTUALENV: true
-  REPOSITORY_SUBTYPE: config
-  REPOSITORY_TYPE: npm
-  TIMEZONE: America/New_York
+
 profile: |
   PATH="$PATH:$HOME/.local/bin:$HOME/.poetry/bin"
   if [[ "$OSTYPE" == 'linux-gnu'* ]] || [[ "$OSTYPE" == 'linux-musl'* ]]; then
@@ -95,16 +105,18 @@ profile: |
     fi
   fi
   if [[ "$OSTYPE" == 'darwin'* ]] && type brew > /dev/null; then
-    PATH="$PATH:$(brew --prefix)/opt/coreutils/libexec/gnubin"
-    PATH="$PATH:$(brew --prefix)/opt/findutils/libexec/gnubin"
-    PATH="$PATH:$(brew --prefix)/opt/gnu-sed/libexec/gnubin"
-    PATH="$PATH:$(brew --prefix)/opt/grep/libexec/gnubin"
-    PATH="$PATH:$(brew --prefix)/opt/gnu-tar/libexec/gnubin"
-    PATH="$PATH:$(brew --prefix)/opt/gawk/libexec/gnubin"
+    BREW_PREFIX="$(brew --prefix)"
+    PATH="$PATH:$BREW_PREFIX/opt/coreutils/libexec/gnubin"
+    PATH="$PATH:$BREW_PREFIX/opt/findutils/libexec/gnubin"
+    PATH="$PATH:$BREW_PREFIX/opt/gnu-sed/libexec/gnubin"
+    PATH="$PATH:$BREW_PREFIX/opt/grep/libexec/gnubin"
+    PATH="$PATH:$BREW_PREFIX/opt/gnu-tar/libexec/gnubin"
+    PATH="$PATH:$BREW_PREFIX/opt/gawk/libexec/gnubin"
   fi
   if [ -f .venv/bin/activate ]; then
     . .venv/bin/activate
   fi
+
 tasks:
   build:
     desc: Build the project
@@ -119,7 +131,41 @@ tasks:
       that are not present.
     cmds:
       - task: go:build
+
+  commit:
+    deps:
+      - install:software:git
+    desc: Add all and commit
+    summary: |
+      # Commit the code
+
+      By default, this task is an alias for:
+
+      ```
+      git add --all
+      git commit
+      ```
+
+      If you pass a commit message as a CLI argument, then the pre-commit
+      logic will be bypassed. By bypassing the hooks, the commit message will be
+      excluded from the automatic CHANGELOG.md entry generated during commits.
+      Passing the commit message as a CLI argument can be done like so:
+
+      ```
+      task commit -- "Added new files that do not need to show up in CHANGELOG.md"
+      ```
+  cmds:
+    - |
+      {{if .CLI_ARGS}}
+      git add --all
+      HUSKY=0 git commit -m "{{.CLI_ARGS}}" --no-verify
+      {{else}}
+      git add --all
+      git commit
+      {{end}}
+
   donothing: 'true'
+
   fix:
     desc: Run code auto-fixers
     summary: |
@@ -150,6 +196,7 @@ tasks:
       In the example above, the bash command will be run in the root of each repository.
     cmds:
       - task: git:gitlab:group:exec
+
   init:
     desc: Runs the initialization script
     summary: |
@@ -174,6 +221,7 @@ tasks:
         else
           bash <(curl -s {{.INIT_SCRIPT}})
         fi
+
   lint:
     desc: Lints the project using all error-prone linters
     summary: |
@@ -187,6 +235,7 @@ tasks:
       `task lint`
     cmds:
       - task: lint:all
+
   livereload:
     deps:
       - install:npm:nodemon
@@ -218,14 +267,16 @@ tasks:
 
       **Example using `task --watch`:**
       `task --watch mytask`
+    log:
+      start: Starting `nodemon` live-reload session
     cmds:
       - |
         if [ ! -f Taskfile-project.yml ]; then
           .config/log error '`Taskfile-project.yml` must exist and have a `livereload` task to use with `nodemon`' && exit 1
         fi
       - nodemon --config {{if .CLI_ARGS}}{{.CLI_ARGS}}{{else}}.config/nodemon.json{{end}}
-    log:
-      start: Starting `nodemon` live-reload session
+
+
   preload:
     deps:
       - install:brewfile
@@ -262,6 +313,7 @@ tasks:
       - |
         .config/log success 'Successfully preloaded commonly used system applications'
         .config/log info 'Some software that requires a reboot may have been installed - rebooting would be prudent'
+
   prepare:
     desc: Prepares the project for the normal start command
     summary: |
@@ -274,6 +326,7 @@ tasks:
     cmds:
       - task: boilerplate:check:package
       - task: boilerplate:clean
+
   scripts:
     interactive: true
     deps:
@@ -288,6 +341,7 @@ tasks:
       their descriptions that you can interactively launch.
     cmds:
       - NTL_RUNNER={{.NPM_PROGRAM}} {{.NPX_HANDLE}}ntl
+
   services:
     desc: Update elements of the repository that require API access
     summary: |
@@ -298,6 +352,7 @@ tasks:
       API keys be set. Generally, only project owners will use this task.
     cmds:
       - task: common:update:services
+
   shell:
     desc: Start a terminal session using Docker with any Linux operating system
     summary: |
@@ -329,6 +384,7 @@ tasks:
       * ubuntu-21.04
     cmds:
       - task: common:shell
+
   start:
     desc: Set up the project and refresh it with the latest changes
     summary: |
