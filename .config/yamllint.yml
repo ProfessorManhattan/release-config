@@ -1,4 +1,6 @@
 ---
+extends: default
+
 ignore: |
   .autodoc/
   .cache/
@@ -21,8 +23,6 @@ ignore: |
   pnpm-lock.yaml
   roles/
   venv/
-
-extends: default
 
 rules:
   braces:
