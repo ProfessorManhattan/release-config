@@ -1,6 +1,6 @@
 <!-- ⚠️ This README has been generated from the file(s) ".config/docs/blueprint-readme-config.md" ⚠️--><div align="center">
   <center>
-    <a href="https://github.com/ProfessorManhattan/release-config">
+    <a href="https://github.com/ProfessorManhattan/semantic-release-config">
       <img width="148" height="148" alt="Semantic Release Config logo" src="https://gitlab.com/megabyte-labs/npm/configs/release/-/raw/master/logo.png" />
     </a>
   </center>
@@ -64,6 +64,10 @@
 
 - [Overview](#overview)
 - [Requirements](#requirements)
+- [Usage](#usage)
+- [Environment](#environment)
+- [Example CI File](#example-ci-file)
+- [Further Reading](#further-reading)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -82,7 +86,7 @@
 - **Go**: Uses GitHub/GitLab Releases
 - **Ansible**: Publishes Ansible roles to Ansible Galaxy
 
-The configuration can be easily modified to accomodate your specific needs (like most semantic-release shared configurations). A good amount of the actual logic for verifying and compiling assets in this particular configuration is housed in our Taskfile.yml file. The [Taskfile.yml project](https://taskfile.dev/#/) is awesome project you should totally check out. We even created a more flavorful variant called [Bodega](https://github.com/ProfessorManhattan/Bodega).
+The configuration can be easily modified to accomodate your specific needs (like most semantic-release shared configurations). A good amount of the actual logic for verifying and compiling assets in this particular configuration is housed in our Taskfile.yml file. The [Taskfile.yml project](https://taskfile.dev/#/) is an incredibly useful project you should check out. It helps combine bash script snippets into useful flows, with dependency management and caching capabilities. We even created a more flavorful variant called **[Bodega](https://github.com/ProfessorManhattan/Bodega)**.
 
 <a href="#requirements" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
 
@@ -91,13 +95,91 @@ The configuration can be easily modified to accomodate your specific needs (like
 - **[Node.js >14.18.0](repository.project.node)**
 - **[Python >3.10.0](repository.project.python)**
 
-{{ load:docs/partials/guide.md }}
+<a href="#usage" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
+
+## Usage
+
+To get started, you will need to add our configuration to your `package.json` with:
+
+```shell
+npm install --save-dev semantic-release-config
+```
+
+After that, you need to add your configuration to your `package.json`. A basic example that releases software whenever there is a new commit on the master branch would look like:
+
+```json
+{
+  "name": "npmappname",
+  "version": "0.0.14",
+  ...
+  "release": {
+    "branches": [
+      "master",
+    ],
+    "extends": "semantic-release-config"
+  }
+}
+```
+
+The above snippet inherits all the settings from this shared configuration and tells semantic-release to only run on the master branch.
+
+**IMPORTANT**
+
+As of right now, in order to use this configuration you have to include the `Taskfile.yml`, everything inside `.config/taskfiles`, and use our `.gitlab-ci.yml` as an example. We use **[Bodega](https://github.com/ProfessorManhattan/Bodega)** which is capable of automatically handling dependency installation at run-time and allowing us to stay DRY by writing build logic in one place (among many other things). So, unless you are willing to give Bodega a try, you should only use this shared configuration as a guide for now.
+
+<a href="#environment" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
+
+## Environment
+
+semantic-release is intended to be run on a CI environment. It automates the entire process of releasing your latest software. With that said, you need to make sure your CI environment has the correct API keys and tokens so it can automatically publish to the various channels. The tokens you need to add to your environment if you decide to use this configuration are listed below:
+
+plugins.semantic
+
+<a href="#example-ci-file" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
+
+## Example CI File
+
+You can use any CI environment you wish to. semantic-release has a [CI example page](https://semantic-release.gitbook.io/semantic-release/recipes/ci-configurations). Your CI file might look something like this on GitLab CI:
+
+```yml
+---
+stages:
+  - test
+  - release
+
+before_script:
+  - npm install
+
+node:10:
+  image: node:10
+  stage: test
+  script:
+    - npm test
+
+node:12:
+  image: node:12
+  stage: test
+  script:
+    - npm test
+
+publish:
+  image: node:12
+  stage: release
+  script:
+    - npx semantic-release
+```
+
+<a href="#further-reading" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
+
+## Further Reading
+
+For further information, you should check out the [official semantic-release docs](https://semantic-release.gitbook.io/semantic-release/). If you are looking for something more slim and practical, you might want to consider checking out [other shareable configurations](https://semantic-release.gitbook.io/semantic-release/extending/shareable-configurations-list). This configuration is meant to be used in eco-systems where developers are deploying one codebase to many different channels. Some might prefer to use a slimmed-down configuration that only includes the minimum amount of `node_modules/`. We may find it easier to maintain a single configuration though.
 
 <a href="#contributing" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
 
 ## Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/ProfessorManhattan/release-config/issues). If you would like to contribute, please take a look at the [contributing guide](https://github.com/ProfessorManhattan/release-config/blob/master/CONTRIBUTING.md).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/ProfessorManhattan/semantic-release-config/issues). If you would like to contribute, please take a look at the [contributing guide](https://github.com/ProfessorManhattan/semantic-release-config/blob/master/CONTRIBUTING.md).
 
 <details>
 <summary><b>Sponsorship</b></summary>
