@@ -22,8 +22,8 @@ export function githubSuccessComment(repoType: string, repoSubType: string, vari
   }
   switch (repoType) {
     case 'go': {
-      if (variables.exeName) {
-        return `:tada: This issue has been resolved in version \${nextRelease.version} :tada:\n\nThe release is available on the **[GitHub release](<github_release_url>)** page :fire:\n\n**Quick Update:**\n\n\`\`\`curl -sS https://install.doctor/${variables.exeName} | bash\n\`\`\``
+      if (variables.binName) {
+        return `:tada: This issue has been resolved in version \${nextRelease.version} :tada:\n\nThe release is available on the **[GitHub release](<github_release_url>)** page :fire:\n\n**Quick Update:**\n\n\`\`\`curl -sS https://install.doctor/${variables.binName} | bash\n\`\`\``
         // Re-visit: Add exeName to .variables.json
       }
 
@@ -31,14 +31,14 @@ export function githubSuccessComment(repoType: string, repoSubType: string, vari
     }
     case 'npm': {
       if (packageVariables.bin) {
-        return `:tada: This issue has been resolved in version \${nextRelease.version} :tada:\n\nThe release is available on **[npmjs.com](https://www.npmjs.com/package/${variables.packageName})** :rocket:\n\n**Quick Update:**\n\n\`\`\`npm install -g ${variables.packageName}@latest\n\`\`\``
+        return `:tada: This issue has been resolved in version \${nextRelease.version} :tada:\n\nThe release is available on **[npmjs.com](https://www.npmjs.com/package/${packageVariables.name})** :rocket:\n\n**Quick Update:**\n\n\`\`\`npm install -g ${packageVariables.name}@latest\n\`\`\``
       }
 
       // Re-visit: Add packageName to .variables.json
-      return `:tada: This issue has been resolved in version \${nextRelease.version} :tada:\n\nThe release is available on **[npmjs.com](https://www.npmjs.com/package/${variables.packageName})** :rocket:`
+      return `:tada: This issue has been resolved in version \${nextRelease.version} :tada:\n\nThe release is available on **[npmjs.com](https://www.npmjs.com/package/${packageVariables.name})** :rocket:`
     }
     case 'packer': {
-      if (variables.vagrantUp) {
+      if (variables.vagrantUpURL) {
         return `:tada: This issue has been resolved in version \${nextRelease.version} :tada:\n\nThe release is available on **[VagrantUp](${variables.vagrantUpURL})** :rocket:`
         // Re-visit: Add vagrantUpURL
       }
@@ -47,7 +47,6 @@ export function githubSuccessComment(repoType: string, repoSubType: string, vari
     }
     case 'python': {
       return `:tada: This issue has been resolved in version \${nextRelease.version} :tada:\n\nThe release is available on **[PyPi.org](https://pypi.org/project/${variables.packageNamePyPi}/)** :snake:\n\n**Quick Update:**\n\n\`\`\`pip3 install -U ${variables.packageNamePyPi}\n\`\`\``
-      // Re-visit: Add exeName to .variables.json
     }
     // No default
   }

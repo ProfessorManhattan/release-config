@@ -1,10 +1,10 @@
 export const DEFAULT_RELEASE_RULES = [
   {
-    release: 'patch',
+    release: false,
     type: 'build'
   },
   {
-    release: 'patch',
+    release: false,
     type: 'ci'
   },
   {
@@ -49,16 +49,18 @@ export const DEFAULT_PACKAGE_FILES = [
   'README.md',
   'docs/CHANGELOG.md',
   'docs/CONTRIBUTING.md',
+  'index.js',
   'LICENSE',
   'package.json',
   'bin/',
-  'dist/'
+  'dist/',
+  'lib/'
 ]
 
 export const DEFAULT_ASSETS_FILES = [
   {
     label: 'Compiled source code (including package.json)',
     name: 'Source',
-    path: ['bin/**', 'dist/**', 'package.json']
+    path: ['bin/**', 'dist/**', 'lib/**', 'index.js', 'package.json']
   }
 ]

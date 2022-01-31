@@ -7,7 +7,7 @@ export const commitTypes = {
       description:
         'Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)',
       emoji: '🛠',
-      release: 'patch',
+      release: false,
       title: 'Builds'
     },
     chore: {
@@ -19,7 +19,7 @@ export const commitTypes = {
           title: 'Dev dependencies'
         }
       },
-      changelog: true,
+      changelog: false,
       description: "Other changes that don't modify src or test files",
       emoji: '♻️',
       release: false,
@@ -37,7 +37,7 @@ export const commitTypes = {
       changelog: true,
       description: 'Documentation only changes',
       emoji: '📚',
-      release: { release: 'patch', scope: 'readme' },
+      release: false,
       title: 'Documentation'
     },
     feat: {
@@ -76,14 +76,14 @@ export const commitTypes = {
       changelog: true,
       description: 'A code change that neither fixes a bug nor adds a feature',
       emoji: '📦',
-      release: false,
+      release: 'patch',
       title: 'Code Refactoring'
     },
     revert: {
       changelog: true,
       description: 'Reverts a previous commit',
       emoji: '🗑',
-      release: false,
+      release: 'patch',
       title: 'Reverts'
     },
     style: {
