@@ -30,7 +30,7 @@
   </h4>
   <p align="center">
     <a href="website.npm_package/semantic-release-config" target="_blank">
-      <img alt="Version: 0.0.2" src="https://img.shields.io/badge/version-0.0.2-blue.svg?cacheSeconds=2592000&style=for-the-badge" />
+      <img alt="Version: 0.0.11" src="https://img.shields.io/badge/version-0.0.11-blue.svg?cacheSeconds=2592000&style=for-the-badge" />
     </a>
     <a href="https://gitlab.com/megabyte-labs/npm/release-config/commits/master" title="GitLab CI build status" target="_blank">
       <img alt="Build status" src="https://gitlab.com/megabyte-labs/npm/release-config/badges/master/pipeline.svg">
