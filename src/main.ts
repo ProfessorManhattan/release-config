@@ -14,11 +14,11 @@ const repoSubType = taskfile.vars.REPOSITORY_SUBTYPE
 // .variables.json
 const variables = acquireVariables()
 const releaseRules = variables.releaseRules ? variables.releaseRules : DEFAULT_RELEASE_RULES
+const assets = variables.releaseAssets ? variables.releaseAssets : DEFAULT_ASSETS_FILES
 
 // Package.json
 const packageVariables = acquirePackage()
 const files = packageVariables.files ? packageVariables.files : DEFAULT_PACKAGE_FILES
-const assets = variables.releaseAssets ? variables.releaseAssets : DEFAULT_ASSETS_FILES
 
 // GitHub
 const githubOptions = {
@@ -28,6 +28,7 @@ const githubOptions = {
   failComment: false,
   failTitle: false,
   labels: false,
+  repositoryUrl: variables.repository.github,
   successComment: githubSuccessComment(repoType, repoSubType, variables, packageVariables)
 }
 
@@ -119,17 +120,29 @@ const plugins: any = [
     {
       pypiPublish: pyPiPublish
     }
-  ],
-  dockerPublish ? dockerPlugin : [],
-  goPublish ? goPlugin : [],
-  packerPublish ? packerPlugin : [],
+  ]
+]
+
+if (dockerPublish) {
+  plugins.push(dockerPlugin)
+}
+
+if (goPublish) {
+  plugins.push(goPlugin)
+}
+
+if (packerPublish) {
+  plugins.push(packerPlugin)
+}
+
+plugins.push(
   [
     '@semantic-release/gitlab',
     {
       assets
     }
   ],
-  ['@semantic-release/github', githubOptions],
+  ['semantic-release-gh', githubOptions],
   [
     '@semantic-release/git',
     {
@@ -137,9 +150,12 @@ const plugins: any = [
       // eslint-disable-next-line no-template-curly-in-string
       message: 'chore(release): version ${nextRelease.version}\n\n${nextRelease.notes}'
     }
-  ],
-  ansiblePublish ? ansiblePlugin : []
-]
+  ]
+)
+
+if (ansiblePublish) {
+  plugins.push(ansiblePlugin)
+}
 
 // eslint-disable-next-line unicorn/prefer-module
 module.exports = {
