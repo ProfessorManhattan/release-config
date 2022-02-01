@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "release-config"
-version = "0.0.11"
+version = "0.0.17"
 description = "Bundles together an ambitious semantic-release shared configuration used across many project types"
 authors = ["Brian Zalewski <brian@megabyte.space>"]
 license = "MIT"
