@@ -21,10 +21,10 @@
     "lib"
   ],
   "scripts": {
-    "help": "task --list",
-    "prepare": "task common:husky",
+    "help": "",
+    "prepare": "",
     "repair": "bash <(curl -sS https://install.doctor/repair)",
-    "start": "bash .config/start.sh"
+    "start": ""
   },
   "config": {
     "commitizen": {
