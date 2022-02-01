@@ -121,6 +121,16 @@
     "subheader_description": "A unified semantic-release shared configuration for GitHub, GitLab, NPM, PyPi, Docker, Go, Packer and more!",
     "title": "An Ambitious Semantic Release Config"
   },
+  "changelog": {
+    "displayTypes": [
+      "feat",
+      "fix",
+      "perf",
+      "refactor",
+      "revert"
+    ],
+    "showAuthor": true
+  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
