@@ -17,7 +17,8 @@
   "type": "commonjs",
   "main": "dist/main.js",
   "files": [
-    "dist"
+    "dist",
+    "lib"
   ],
   "scripts": {
     "build": "task npm:build:tsconfig",
@@ -55,10 +56,15 @@
     "esbuild-node-externals": "^1.4.1"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^16.0.0",
     "@types/node": "^16.11.6",
     "@washingtondc/development": "latest",
+    "cz-emoji-conventional": "^1.0.1",
+    "esbuild": "^0.12.29",
+    "esbuild-node-externals": "^1.3.0",
     "eslint-config-strict-mode": "latest",
-    "jest-preset-ts": "latest",
+    "handlebars-helpers": "^0.10.0",
+    "jest-preset-ts": "^1.0.0",
     "prettier-config-sexy-mode": "latest",
     "semantic-release-config": "latest"
   },
@@ -105,6 +111,16 @@
     "subheader_description": "A unified semantic-release shared configuration for GitHub, GitLab, NPM, PyPi, Docker, Go, Packer and more!",
     "title": "An Ambitious Semantic Release Config"
   },
+  "changelog": {
+    "displayTypes": [
+      "feat",
+      "fix",
+      "perf",
+      "refactor",
+      "revert"
+    ],
+    "showAuthor": true
+  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
@@ -137,7 +153,7 @@
     }
   ],
   "jest": {
-    "preset": "@megabytelabs/jest-preset",
+    "preset": "jest-preset-ts",
     "reporters": [
       "default",
       [
@@ -201,13 +217,15 @@
   },
   "ntl": {
     "descriptions": {
-      "help": "Display a list of tasks that can be run via the Taskfile.yml",
+      "build": "Builds the project, if needed",
+      "help": "Display the Bodega Taskfile.yml interactive help menu",
       "prepare": "Hook, triggered by running npm install, that runs logic such as installing pre-commit hooks",
       "repair": "Fixes basic issues in projects that are having trouble running basic commands like 'task start'",
-      "start": "Entrypoint for new developers that installs requirements and then runs 'task start'"
+      "start": "Entrypoint for new developers that installs requirements and then runs 'task start'",
+      "test": "Runs the appropriate test logic"
     }
   },
-  "prettier": "@washingtondc/prettier",
+  "prettier": "prettier-config-sexy-mode",
   "release": {
     "branches": [
       "main",
