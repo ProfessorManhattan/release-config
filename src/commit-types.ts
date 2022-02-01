@@ -3,7 +3,7 @@ export const commitTypes = {
   maxSubjectLength: 72,
   types: {
     build: {
-      changelog: true,
+      changelog: false,
       description:
         'Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)',
       emoji: '🛠',
@@ -26,7 +26,7 @@ export const commitTypes = {
       title: 'Chores'
     },
     ci: {
-      changelog: true,
+      changelog: false,
       description:
         'Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)',
       emoji: '⚙️',
@@ -34,7 +34,7 @@ export const commitTypes = {
       title: 'Continuous Integrations'
     },
     docs: {
-      changelog: true,
+      changelog: false,
       description: 'Documentation only changes',
       emoji: '📚',
       release: false,
@@ -87,7 +87,7 @@ export const commitTypes = {
       title: 'Reverts'
     },
     style: {
-      changelog: true,
+      changelog: false,
       description:
         'Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)',
       emoji: '💎',
@@ -95,7 +95,7 @@ export const commitTypes = {
       title: 'Styles'
     },
     test: {
-      changelog: true,
+      changelog: false,
       description: 'Adding missing tests or correcting existing tests',
       emoji: '🚨',
       release: false,
