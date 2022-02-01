@@ -29,19 +29,19 @@
 </div>
 <br/>
 <div align="center">
-  <a href="website.npm_package/semantic-release-config" title="Version 0.0.11" target="_blank">
+  <a href="https://www.npmjs.com/package/semantic-release-config" title="Version 0.0.11" target="_blank">
     <img alt="Version: 0.0.11" src="https://img.shields.io/badge/version-0.0.11-blue.svg?cacheSeconds=2592000&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUCNdjIACY//+BEp9hhM3hAzYQwoBIAqEDYQrCZLwAAGlFKxU1nF9cAAAAAElFTkSuQmCC&style=flat-square" />
   </a>
   <a href="https://gitlab.com/megabyte-labs/npm/configs/release/-/commits/master" title="GitLab CI build status" target="_blank">
     <img alt="Build status" src="https://img.shields.io/gitlab/pipeline-status/megabyte-labs/npm/config/release-config?branch=master&label=build&logo=gitlab&logoColor=white&style=flat-square">
   </a>
-  <a href="website.npm_package/semantic-release-config" title="Dependency status reported by Depfu" target="_blank">
+  <a href="https://www.npmjs.com/package/semantic-release-config" title="Dependency status reported by Depfu" target="_blank">
     <img alt="Dependency status reported by Depfu" src="https://img.shields.io/depfu/megabyte-labs/semantic-release-config?logo=codeforces&logoColor=white&style=flat-square&logo=npm" />
   </a>
-  <a href="website.npm_package/semantic-release-config" title="Zip file size" target="_blank">
+  <a href="https://www.npmjs.com/package/semantic-release-config" title="Zip file size" target="_blank">
     <img alt="Zip file size" src="https://img.shields.io/bundlephobia/minzip/semantic-release-config?style=flat-square&logo=npm&logoColor=white" />
   </a>
-  <a href="website.npm_package/semantic-release-config" title="Total downloads of semantic-release-config on npmjs.org" target="_blank">
+  <a href="https://www.npmjs.com/package/semantic-release-config" title="Total downloads of semantic-release-config on npmjs.org" target="_blank">
     <img alt="Total downloads of semantic-release-config on npmjs.org" src="https://img.shields.io/npm/dt/semantic-release-config?style=flat-square&logo=npm&logoColor=white" />
   </a>
   <a href="https://snyk.io/advisor/npm-package/semantic-release-config" title="Number of vulnerabilities from Snyk scan on semantic-release-config" target="_blank">
