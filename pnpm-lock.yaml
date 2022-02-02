@@ -24,7 +24,7 @@ devDependencies:
   cz-emoji-conventional: 1.0.1_@types+node@16.11.22
   esbuild: 0.12.29
   esbuild-node-externals: 1.4.1_esbuild@0.12.29
-  eslint-config-strict-mode: 1.0.35
+  eslint-config-strict-mode: 1.0.36
   handlebars-helpers: 0.10.0
   jest-preset-ts: 1.0.1_esbuild@0.12.29
   prettier-config-sexy-mode: 1.0.1
@@ -8752,8 +8752,8 @@ packages:
       eslint: 8.8.0
     dev: true
 
-  /eslint-config-strict-mode/1.0.35:
-    resolution: {integrity: sha512-Sh/A6JjgMT1tVTAqXFI+zMAB7yT8hHx5lkoWpw7FPYif9+/9b4QBDPp66I9IPcMgF9jrSUMcMjuGPavJXRyIpA==}
+  /eslint-config-strict-mode/1.0.36:
+    resolution: {integrity: sha512-AsFA41CnNgsXT7aH02mzfy20j7OOz6PFDkJ4iDC+Bf++lilbRj22U1CXxv5oXU+4zGnQjQ9Rov2gXXzwvm1l1Q==}
     engines: {node: '>=14.18.0'}
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.10.2_0d682450f1ef58680b7f0316f2e82e26
