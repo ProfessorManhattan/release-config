@@ -56,7 +56,7 @@ unicode_backport = ["unicodedata2"]
 name = "click"
 version = "8.0.3"
 description = "Composable command line interface toolkit"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -189,6 +189,25 @@ python-versions = "*"
 
 [package.extras]
 testing = ["coverage", "nose"]
+
+[[package]]
+name = "poetry-core"
+version = "1.0.7"
+description = "Poetry PEP 517 Build Backend"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[[package]]
+name = "poetry2setup"
+version = "1.0.0"
+description = "Convert python-poetry to setup.py"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+poetry-core = ">=1.0.0,<2.0.0"
 
 [[package]]
 name = "pre-commit-hooks"
@@ -366,6 +385,26 @@ optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
+name = "toml-sort"
+version = "0.19.0"
+description = "Toml sorting library"
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[package.dependencies]
+click = ">=7.0"
+tomlkit = ">=0.5.8"
+
+[[package]]
+name = "tomlkit"
+version = "0.9.0"
+description = "Style preserving TOML library"
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[[package]]
 name = "tqdm"
 version = "4.62.3"
 description = "Fast, Extensible Progress Meter"
@@ -451,7 +490,7 @@ semantic = ["pip", "setuptools", "twine", "wheel"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10.0,<4.0.0"
-content-hash = "e3dd09a870b482324d441ba531c753f3e260ef7d81751fd7919ebe1afc23eb1b"
+content-hash = "89f2779b6fee88ea3329951764b76cb8aa2980d9f6108f012cca22444f79c1d6"
 
 [metadata.files]
 bleach = [
@@ -587,6 +626,14 @@ pkginfo = [
     {file = "pkginfo-1.8.2-py2.py3-none-any.whl", hash = "sha256:c24c487c6a7f72c66e816ab1796b96ac6c3d14d49338293d2141664330b55ffc"},
     {file = "pkginfo-1.8.2.tar.gz", hash = "sha256:542e0d0b6750e2e21c20179803e40ab50598d8066d51097a0e382cba9eb02bff"},
 ]
+poetry-core = [
+    {file = "poetry-core-1.0.7.tar.gz", hash = "sha256:98c11c755a16ef6c5673c22ca94a3802a7df4746a0853a70b6fae8b9f5cac206"},
+    {file = "poetry_core-1.0.7-py2.py3-none-any.whl", hash = "sha256:4f8a7f5390d772f42c4c4c3f188e6424b802cb4b57466c6633a1b9ac36f18a43"},
+]
+poetry2setup = [
+    {file = "poetry2setup-1.0.0-py2.py3-none-any.whl", hash = "sha256:b69a4efabfda24870fd8d08b37b15fbbee5eec0b62711feaef610f94835517be"},
+    {file = "poetry2setup-1.0.0.tar.gz", hash = "sha256:ef1177303996b661eeec3de5027a1af84e106a1d2cb92c73152fe6ce47700cc3"},
+]
 pre-commit-hooks = [
     {file = "pre_commit_hooks-4.1.0-py2.py3-none-any.whl", hash = "sha256:ba95316b79038e56ce998cdacb1ce922831ac0e41744c77bcc2b9677bf183206"},
     {file = "pre_commit_hooks-4.1.0.tar.gz", hash = "sha256:b6361865d1877c5da5ac3a944aab19ce6bd749a534d2ede28e683d07194a57e1"},
@@ -704,6 +751,14 @@ six = [
 toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
     {file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"},
+]
+toml-sort = [
+    {file = "toml-sort-0.19.0.tar.gz", hash = "sha256:5e81f5a9632fa4c7302642c6ea1b76468865adca9a23dee6e129f8ee50c1fb64"},
+    {file = "toml_sort-0.19.0-py3-none-any.whl", hash = "sha256:ca7c7100b0bd14faf3056361ddff478411a609fbaabd00c27d48569e62ab55bc"},
+]
+tomlkit = [
+    {file = "tomlkit-0.9.0-py3-none-any.whl", hash = "sha256:c1b0fc73abd4f1e77c29ea4061ca0f2e11cbfb77342e17df3d3fdd496fc3f899"},
+    {file = "tomlkit-0.9.0.tar.gz", hash = "sha256:5a83672c565f78f5fc8f1e44e5f2726446cc6b765113efd21d03e9331747d9ab"},
 ]
 tqdm = [
     {file = "tqdm-4.62.3-py2.py3-none-any.whl", hash = "sha256:8dd278a422499cd6b727e6ae4061c40b48fce8b76d1ccbf5d34fca9b7f925b0c"},

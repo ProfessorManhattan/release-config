@@ -1,6 +1,6 @@
 import * as fs from 'node:fs'
 import { customTransformer } from './custom-transformer'
-import { DEFAULT_ASSETS_FILES, DEFAULT_PACKAGE_FILES, DEFAULT_RELEASE_RULES } from './defaults'
+import { DEFAULT_ASSETS_FILES, DEFAULT_RELEASE_RULES } from './defaults'
 import { githubSuccessComment } from './github'
 import { acquirePackage, acquireProjectType, acquireVariables } from './project'
 
@@ -18,7 +18,6 @@ const assets = variables.releaseAssets ? variables.releaseAssets : DEFAULT_ASSET
 
 // Package.json
 const packageVariables = acquirePackage()
-const files = packageVariables.files ? packageVariables.files : DEFAULT_PACKAGE_FILES
 
 // GitHub
 const githubOptions = {
@@ -33,12 +32,10 @@ const githubOptions = {
 }
 
 // NPM
-const npmPublish =
-  packageVariables.files && packageVariables.files.length > 0 && (repoType === 'npm' || variables.npmPublish)
+const npmPublish = repoType === 'npm' || variables.npmPublish
 
 // Python
-const pyPiPublish =
-  packageVariables.files && packageVariables.files.length > 0 && (repoType === 'python' || variables.pyPiPublish)
+const pyPiPublish = repoType === 'python' || variables.pyPiPublish
 
 // Docker
 const dockerPublish = fs.existsSync('Dockerfile') && (repoType === 'docker' || variables.dockerPublish)
@@ -111,7 +108,8 @@ const plugins: any = [
   [
     '@semantic-release/npm',
     {
-      npmPublish
+      npmPublish,
+      tarballDir: 'dist'
     }
   ],
   'semantic-release-npm-deprecate-old-versions',
@@ -139,14 +137,14 @@ plugins.push(
   [
     '@semantic-release/gitlab',
     {
-      assets
+      assets: 'dist/*'
     }
   ],
   ['semantic-release-gh', githubOptions],
   [
     '@semantic-release/git',
     {
-      assets: files,
+      assets: 'dist/*',
       // eslint-disable-next-line no-template-curly-in-string
       message: 'chore(release): version ${nextRelease.version}\n\n${nextRelease.notes}'
     }
