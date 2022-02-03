@@ -29,8 +29,8 @@
 </div>
 <br/>
 <div align="center">
-  <a href="https://www.npmjs.com/package/semantic-release-config" title="Version 1.1.3" target="_blank">
-    <img alt="Version: 1.1.3" src="https://img.shields.io/badge/version-1.1.3-blue.svg?cacheSeconds=2592000&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUCNdjIACY//+BEp9hhM3hAzYQwoBIAqEDYQrCZLwAAGlFKxU1nF9cAAAAAElFTkSuQmCC&style=flat-square" />
+  <a href="https://www.npmjs.com/package/semantic-release-config" title="Version 1.1.4" target="_blank">
+    <img alt="Version: 1.1.4" src="https://img.shields.io/badge/version-1.1.4-blue.svg?cacheSeconds=2592000&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUCNdjIACY//+BEp9hhM3hAzYQwoBIAqEDYQrCZLwAAGlFKxU1nF9cAAAAAElFTkSuQmCC&style=flat-square" />
   </a>
   <a href="https://gitlab.com/megabyte-labs/npm/configs/release/-/commits/master" title="GitLab CI build status" target="_blank">
     <img alt="Build status" src="https://img.shields.io/gitlab/pipeline-status/megabyte-labs/npm/config/release-config?branch=master&label=build&logo=gitlab&logoColor=white&style=flat-square">
@@ -80,7 +80,7 @@
 - **NPM**: Publishes to npmjs.org
 - **GitLab**: Publishes to GitLab Releases
 - **GitHub**: Publishes to GitHub Releases
-- **PyPi**: Publishes Python projects to pypi.org
+- **PyPi**: Publishes Python projects to pypi.org (`pyproject.toml` and `setup.py`/`setup.cfg` supported)
 - **Docker**: Publishes to DockerHub or a registry of your choice
 - **VagrantUp**: Builds VMs with Packer and then publishes them to VagrantUp
 - **Go**: Uses GitHub/GitLab Releases
