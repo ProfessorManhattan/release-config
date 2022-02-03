@@ -1,3 +1,14 @@
+export const COMMIT_ASSETS = [
+  'npm-shrinkwrap.json',
+  'package.json',
+  'pnpm-lock.yaml',
+  'pyproject.toml',
+  'poetry.lock',
+  'setup.cfg',
+  'setup.py',
+  'docs'
+]
+
 export const DEFAULT_RELEASE_RULES = [
   {
     release: false,
@@ -42,10 +53,24 @@ export const DEFAULT_RELEASE_RULES = [
   {
     release: false,
     type: 'test'
+  },
+  {
+    message: 'PATCH UPDATE*',
+    release: 'patch'
+  },
+  {
+    message: 'MINOR UPDATE*',
+    release: 'minor'
+  },
+  {
+    message: 'MAJOR UPDATE*',
+    release: 'major'
+  },
+  {
+    message: '*BREAKING CHANGE*',
+    release: 'major'
   }
 ]
-
-export const DEFAULT_PACKAGE_FILES = ['README.md', 'index.js', 'LICENSE', 'package.json', 'bin/', 'dist/', 'lib/']
 
 export const DEFAULT_ASSETS_FILES = [
   {

@@ -1,6 +1,6 @@
 import * as fs from 'node:fs'
 import { customTransformer } from './custom-transformer'
-import { DEFAULT_ASSETS_FILES, DEFAULT_RELEASE_RULES } from './defaults'
+import { COMMIT_ASSETS, DEFAULT_ASSETS_FILES, DEFAULT_RELEASE_RULES } from './defaults'
 import { githubSuccessComment } from './github'
 import { acquirePackage, acquireProjectType, acquireVariables } from './project'
 
@@ -19,6 +19,9 @@ const assets = variables.releaseAssets ? variables.releaseAssets : DEFAULT_ASSET
 // Package.json
 const packageVariables = acquirePackage()
 
+// Files to include, if changed, alongside the tagged commit
+const assetsToCommit = COMMIT_ASSETS
+
 // GitHub
 const githubOptions = {
   addReleases: 'bottom',
@@ -33,9 +36,15 @@ const githubOptions = {
 
 // NPM
 const npmPublish = repoType === 'npm' || variables.npmPublish
+const npmBuild = [
+  semanticExec,
+  {
+    prepareCmd: 'task build'
+  }
+]
 
 // Python
-const pyPiPublish = repoType === 'python' || variables.pyPiPublish
+const pypiPublish = repoType === 'python' || variables.pyPiPublish
 
 // Docker
 const dockerPublish = fs.existsSync('Dockerfile') && (repoType === 'docker' || variables.dockerPublish)
@@ -106,6 +115,7 @@ const plugins: any = [
         [Megabyte Labs Commit Guide](https://megabyte.space/docs/contributing/commits).'
     }
   ],
+  npmPublish ? npmBuild : [],
   [
     '@semantic-release/npm',
     {
@@ -117,24 +127,12 @@ const plugins: any = [
   [
     'semantic-release-python',
     {
-      pypiPublish: pyPiPublish
+      pypiPublish
     }
-  ]
-]
-
-if (dockerPublish) {
-  plugins.push(dockerPlugin)
-}
-
-if (goPublish) {
-  plugins.push(goPlugin)
-}
-
-if (packerPublish) {
-  plugins.push(packerPlugin)
-}
-
-plugins.push(
+  ],
+  dockerPublish ? dockerPlugin : [],
+  goPublish ? goPlugin : [],
+  packerPublish ? packerPlugin : [],
   [
     '@semantic-release/gitlab',
     {
@@ -145,16 +143,13 @@ plugins.push(
   [
     '@semantic-release/git',
     {
-      assets: ['package.json', 'pnpm-lock.yaml', 'pyproject.toml', 'poetry.lock', 'setup.cfg', 'setup.py', 'docs'],
+      assets: assetsToCommit,
       // eslint-disable-next-line no-template-curly-in-string
       message: 'chore(release): version ${nextRelease.version}\n\n${nextRelease.notes}'
     }
-  ]
-)
-
-if (ansiblePublish) {
-  plugins.push(ansiblePlugin)
-}
+  ],
+  ansiblePublish ? ansiblePlugin : []
+].filter((plugin) => plugin.length)
 
 // eslint-disable-next-line unicorn/prefer-module
 module.exports = {

@@ -13,6 +13,10 @@ const COMMIT_HASH_LENGTH = 7
  * @returns The modified commit
  */
 export function customTransformer(commit: any, context: any): any {
+  // eslint-disable-next-line no-console
+  console.log(context)
+  // eslint-disable-next-line no-console
+  console.log(commit)
   const types: any = commitTypes
   if (commit.notes) {
     // eslint-disable-next-line unicorn/no-array-for-each
