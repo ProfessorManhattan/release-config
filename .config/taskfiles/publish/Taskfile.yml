@@ -36,6 +36,12 @@ tasks:
       - :install:npm:semantic-release
       - :install:software:git
       - :install:software:poetry
+    summary: |
+      # Run Semantic Release
+
+      If `setup.cfg` is present, then the project is assumed to be a legacy Python
+      project that needs to run in environment with access to the `python-semantic`
+      extras defined in `pyproject.toml`.
     vars:
       RELEASE_PREFIX:
         sh: if [ -f setup.cfg ]; then echo 'poetry run '; else echo ''; fi
@@ -44,10 +50,31 @@ tasks:
       start: Releasing with `semantic-release`..
       success: Finished running `semantic-release`
     cmds:
-      - task install:modules:local:sync -- {{.SEMANTIC_CONFIG}}
+      - task: :install:modules:local:sync
+        vars:
+          NPM_KEEP_UPDATED: '{{.SEMANTIC_CONFIG}}'
+      - task: version:tag
       - task: :common:update:variables
       - |
         export GIT_CREDENTIALS="gitlab-ci-token:$CI_BUILD_TOKEN"
-        poetry install --no-dev
-        poetry install -E semantic
+        if [ -f setup.cfg ]; then
+          poetry install -E semantic
+        fi
         {{.RELEASE_PREFIX}}semantic-release -r "$(git remote get-url origin)"{{if .CLI_ARGS}} {{.CLI_ARGS}}{{end}}
+
+  version:tag:
+    deps:
+      - :install:software:jq
+    summary: |
+      This command is intended to be used before the `semantic-release` task to ensure
+      that the latest git tag is up-to-date with the latest `package.json` version.
+    cmds:
+      - git tag -a "v$(jq -r '.version' package.json )" -m "Latest package.json version tagged."
+      - git push origin --tags
+    status:
+      - git tag | grep "v$(jq -r '.version' package.json)"
+    preconditions:
+      - sh: '[ -f package.json ]'
+        msg: A package.json file must be present!
+      - sh: '[ "$(jq -r \".version\" package.json)" != "null" ]'
+        msg: Version must be defined in package.json

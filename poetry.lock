@@ -422,7 +422,7 @@ telegram = ["requests"]
 
 [[package]]
 name = "twine"
-version = "3.7.1"
+version = "3.8.0"
 description = "Collection of utilities for publishing packages on PyPI"
 category = "main"
 optional = true
@@ -438,6 +438,7 @@ requests = ">=2.20"
 requests-toolbelt = ">=0.8.0,<0.9.0 || >0.9.0"
 rfc3986 = ">=1.4.0"
 tqdm = ">=4.14"
+urllib3 = ">=1.26.0"
 
 [[package]]
 name = "urllib3"
@@ -490,7 +491,7 @@ semantic = ["pip", "setuptools", "twine", "wheel"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10.0,<4.0.0"
-content-hash = "89f2779b6fee88ea3329951764b76cb8aa2980d9f6108f012cca22444f79c1d6"
+content-hash = "1f871ecee32fcb03f0b1e107aa03e7d06789def2374f3b065d4fae81556c1e07"
 
 [metadata.files]
 bleach = [
@@ -765,8 +766,8 @@ tqdm = [
     {file = "tqdm-4.62.3.tar.gz", hash = "sha256:d359de7217506c9851b7869f3708d8ee53ed70a1b8edbba4dbcb47442592920d"},
 ]
 twine = [
-    {file = "twine-3.7.1-py3-none-any.whl", hash = "sha256:8c120845fc05270f9ee3e9d7ebbed29ea840e41f48cd059e04733f7e1d401345"},
-    {file = "twine-3.7.1.tar.gz", hash = "sha256:28460a3db6b4532bde6a5db6755cf2dce6c5020bada8a641bb2c5c7a9b1f35b8"},
+    {file = "twine-3.8.0-py3-none-any.whl", hash = "sha256:d0550fca9dc19f3d5e8eadfce0c227294df0a2a951251a4385797c8a6198b7c8"},
+    {file = "twine-3.8.0.tar.gz", hash = "sha256:8efa52658e0ae770686a13b675569328f1fba9837e5de1867bfe5f46a9aefe19"},
 ]
 urllib3 = [
     {file = "urllib3-1.26.8-py2.py3-none-any.whl", hash = "sha256:000ca7f471a233c2251c6c7023ee85305721bfdf18621ebff4fd17a8653427ed"},
