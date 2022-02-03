@@ -14,6 +14,8 @@ const COMMIT_HASH_LENGTH = 7
  */
 export function customTransformer(commit: any, context: any): any {
   // eslint-disable-next-line no-console
+  console.log('CUSTOM TRANSFORMER INPUT')
+  // eslint-disable-next-line no-console
   console.log(context)
   // eslint-disable-next-line no-console
   console.log(commit)
