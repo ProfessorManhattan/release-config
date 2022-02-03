@@ -55,7 +55,7 @@ devDependencies:
   handlebars-helpers: 0.10.0
   jest-preset-ts: 1.0.1_esbuild@0.12.29+typescript@4.5.5
   prettier-config-sexy-mode: 1.0.1_typescript@4.5.5
-  semantic-release-config: 1.1.0
+  semantic-release-config: 1.1.1
   typescript: 4.5.5
 
 packages:
@@ -6538,27 +6538,6 @@ packages:
     engines: {node: '>= 12.0.0'}
     dev: true
 
-  /commitizen/4.2.4:
-    resolution: {integrity: sha512-LlZChbDzg3Ir3O2S7jSo/cgWp5/QwylQVr59K4xayVq8S4/RdKzSyJkghAiZZHfhh5t4pxunUoyeg0ml1q/7aw==}
-    engines: {node: '>= 10'}
-    hasBin: true
-    dependencies:
-      cachedir: 2.2.0
-      cz-conventional-changelog: 3.2.0_@types+node@16.11.22
-      dedent: 0.7.0
-      detect-indent: 6.0.0
-      find-node-modules: 2.1.2
-      find-root: 1.1.0
-      fs-extra: 8.1.0
-      glob: 7.1.4
-      inquirer: 6.5.2
-      is-utf8: 0.2.1
-      lodash: 4.17.21
-      minimist: 1.2.5
-      strip-bom: 4.0.0
-      strip-json-comments: 3.0.1
-    dev: true
-
   /commitizen/4.2.4_@types+node@16.11.22:
     resolution: {integrity: sha512-LlZChbDzg3Ir3O2S7jSo/cgWp5/QwylQVr59K4xayVq8S4/RdKzSyJkghAiZZHfhh5t4pxunUoyeg0ml1q/7aw==}
     engines: {node: '>= 10'}
@@ -7156,7 +7135,7 @@ packages:
     engines: {node: '>= 10'}
     dependencies:
       chalk: 2.4.2
-      commitizen: 4.2.4
+      commitizen: 4.2.4_@types+node@16.11.22
       conventional-commit-types: 3.0.0
       lodash.map: 4.6.0
       longest: 2.0.1
@@ -16474,8 +16453,8 @@ packages:
     engines: {node: '>=0.12.0'}
     dev: true
 
-  /semantic-release-config/1.1.0:
-    resolution: {integrity: sha512-enpMvJMLiUqasT7FVHv6bN6pGJ9CVDEzAyWUFNZ2xVb2PN0rSdumODi1i5TzPcSrC7AQFIxYobIc6nQ+1p3DVQ==}
+  /semantic-release-config/1.1.1:
+    resolution: {integrity: sha512-SxZe5+ViYVsYegkGfeu8ctXtzZeFFm+aHJUUgy5hMRt89VZnyWsD7zyeZekO8jwLmPGtw73EX+15sRNF9ackkA==}
     engines: {node: '>=14.18.0'}
     dependencies:
       '@semantic-release/changelog': 6.0.1_semantic-release@19.0.2
