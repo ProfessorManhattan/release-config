@@ -137,14 +137,14 @@ plugins.push(
   [
     '@semantic-release/gitlab',
     {
-      assets: 'dist/*'
+      assets
     }
   ],
   ['semantic-release-gh', githubOptions],
   [
     '@semantic-release/git',
     {
-      assets: 'dist/*',
+      assets: ['package.json', 'pnpm-lock.yaml', 'pyproject.toml', 'poetry.lock', 'setup.cfg', 'setup.py', 'docs'],
       // eslint-disable-next-line no-template-curly-in-string
       message: 'chore(release): version ${nextRelease.version}\n\n${nextRelease.notes}'
     }

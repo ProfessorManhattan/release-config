@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "semantic-release-config",
-  "version": "0.0.19",
+  "version": "1.1.1",
   "description": "Bundles together an ambitious semantic-release shared configuration used across many project types",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
@@ -61,7 +61,8 @@
     "handlebars-helpers": "^0.10.0",
     "jest-preset-ts": "^1.0.0",
     "prettier-config-sexy-mode": "latest",
-    "semantic-release-config": "latest"
+    "semantic-release-config": "latest",
+    "typescript": "^4.5.5"
   },
   "keywords": [
     "bundle",

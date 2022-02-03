@@ -49,8 +49,6 @@ export const DEFAULT_PACKAGE_FILES = ['README.md', 'index.js', 'LICENSE', 'packa
 
 export const DEFAULT_ASSETS_FILES = [
   {
-    label: 'Compiled source code (including package.json)',
-    name: 'Source',
-    path: ['bin/**', 'dist/**', 'lib/**', 'index.js', 'package.json', 'README.md', 'LICENSE']
+    path: ['dist/**']
   }
 ]
