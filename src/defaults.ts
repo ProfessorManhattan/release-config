@@ -27,9 +27,9 @@ export const COMMIT_ASSETS = [
 ]
 
 export const DEFAULT_RELEASE_RULES = [
-  ...(Object.keys(CommitProfile.types) as CommitTypes[]).map((x: CommitTypes) => ({
-    type: x,
-    release: (CommitProfile as any).types[x].release
+  ...(Object.keys(CommitProfile.types) as readonly CommitTypes[]).map((type: CommitTypes) => ({
+    release: (CommitProfile as any).types[type].release,
+    type
   })),
   {
     message: '*PATCH UPDATE*',

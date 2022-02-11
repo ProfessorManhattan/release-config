@@ -11,9 +11,6 @@ includes:
   boilerplate:prompt: ./.config/taskfiles/boilerplate/Taskfile-prompt.yml
   ci: ./.config/taskfiles/ci/Taskfile.yml
   ci:github: ./.config/taskfiles/ci/Taskfile-github.yml
-  project:
-    taskfile: Taskfile-project.yml
-    optional: true
   common: ./.config/taskfiles/common/Taskfile.yml
   common:code: ./.config/taskfiles/common/Taskfile-code.yml
   common:update: ./.config/taskfiles/common/Taskfile-update.yml
@@ -24,6 +21,9 @@ includes:
   fix: ./.config/taskfiles/fix/Taskfile.yml
   git: ./.config/taskfiles/git/Taskfile.yml
   git:github: ./.config/taskfiles/git/Taskfile-github.yml
+  project:
+    taskfile: Taskfile-project.yml
+    optional: true
   git:gitlab: ./.config/taskfiles/git/Taskfile-gitlab.yml
   git:hook: ./.config/taskfiles/git/Taskfile-hook.yml
   go: ./.config/taskfiles/go/Taskfile.yml
