@@ -12,6 +12,7 @@ specifiers:
   '@types/node': ^16.11.6
   '@washingtondc/development': latest
   conventional-changelog-emoji-config: latest
+  cz-emoji-conventional: ^1.0.1
   esbuild: ^0.12.29
   esbuild-node-externals: ^1.3.0
   eslint-config-strict-mode: latest
@@ -50,6 +51,7 @@ devDependencies:
   '@commitlint/config-conventional': 16.0.0
   '@types/node': 16.11.24
   '@washingtondc/development': 1.0.10_8909f72e9dc4fe10ad28f9faadc9a4a1
+  cz-emoji-conventional: 1.0.1_@types+node@16.11.24
   esbuild: 0.12.29
   esbuild-node-externals: 1.4.1_esbuild@0.12.29
   eslint-config-strict-mode: 1.0.36_typescript@4.5.5
@@ -57,7 +59,7 @@ devDependencies:
   handlebars-helpers: 0.10.0
   jest-preset-ts: 1.0.1_esbuild@0.12.29+typescript@4.5.5
   prettier-config-sexy-mode: 1.0.1_typescript@4.5.5
-  semantic-release-config: 1.1.4
+  semantic-release-config: 1.1.6_@types+node@16.11.24
   typescript: 4.5.5
 
 packages:
@@ -1765,12 +1767,12 @@ packages:
       '@cspell/dict-php': 1.0.25
       '@cspell/dict-powershell': 1.0.19
       '@cspell/dict-public-licenses': 1.0.4
-      '@cspell/dict-python': 2.0.5
+      '@cspell/dict-python': 2.0.6
       '@cspell/dict-r': 1.0.2
       '@cspell/dict-ruby': 1.0.15
       '@cspell/dict-rust': 1.0.23
       '@cspell/dict-scala': 1.0.21
-      '@cspell/dict-software-terms': 2.0.15
+      '@cspell/dict-software-terms': 2.0.16
       '@cspell/dict-swift': 1.0.2
       '@cspell/dict-typescript': 1.0.20
       '@cspell/dict-vue': 2.0.2
@@ -1902,8 +1904,8 @@ packages:
     resolution: {integrity: sha512-h4xULfVEDUeWyvp1OO19pcGDqWcBEQ7WGMp3QBHyYpjsamlzsyYYjCRSY2ZvpM7wruDmywSRFmRHJ/+uNFT7nA==}
     dev: true
 
-  /@cspell/dict-python/2.0.5:
-    resolution: {integrity: sha512-WkyGYtNmUsOHsWixck7AxNvveDgVPqw0H51hzIY+/5u3c94wZUweIj0vfFOGIfOBq8e1ZxpjumKBxVDGXTmQkw==}
+  /@cspell/dict-python/2.0.6:
+    resolution: {integrity: sha512-54ICgMRiGwavorg8UJC38Fwx8tW8WKj8pimJmFUd0F/ImQ8wmeg4VrmyMach5MZVUaw1qUe2aP5uSyqA15Q0mg==}
     dev: true
 
   /@cspell/dict-r/1.0.2:
@@ -1922,8 +1924,8 @@ packages:
     resolution: {integrity: sha512-5V/R7PRbbminTpPS3ywgdAalI9BHzcEjEj9ug4kWYvBIGwSnS7T6QCFCiu+e9LvEGUqQC+NHgLY4zs1NaBj2vA==}
     dev: true
 
-  /@cspell/dict-software-terms/2.0.15:
-    resolution: {integrity: sha512-/+wNw2XQiEebw0f8tiTA2lDp4W4HCoEEL70e87f+VGgLXYSLbV70PzeL7VK2wB5A+AlS8BvLadyzON9XRFlDaQ==}
+  /@cspell/dict-software-terms/2.0.16:
+    resolution: {integrity: sha512-B5hgeuMYTlslkiua2WVcacgX8+L2QJgm1+Zaot0Fbbh1Uk/TbjLqR40OT0cakNur9OBZ1gtdaEsTCldqnBdKjA==}
     dev: true
 
   /@cspell/dict-swift/1.0.2:
@@ -2096,14 +2098,6 @@ packages:
 
   /@gar/promisify/1.1.2:
     resolution: {integrity: sha512-82cpyJyKRoQoRi+14ibCeGPu0CwypgtBAdBhq1WfvagpCZNKqwXbKwXllYSMG91DhmG4jt9gN8eP6lGOtozuaw==}
-    dev: true
-
-  /@gitmoji/commit-types/1.1.5:
-    resolution: {integrity: sha512-8D3FZMRY+gtYpTcHG1SOGmm9CFqxNh6rI9xDoCydxHxnWgqInbdF3nk9gibW5gXA58Hf2cVcJaLEcGOKLRAtmw==}
-    dev: true
-
-  /@gitmoji/parser-opts/1.3.0:
-    resolution: {integrity: sha512-NqfoW12eXMdDJz3g3NHnopEgDoqdY1YshO6XxIVPOqotGTDcjD1sL28AVKskbYveGmHBPdHieRRv6M9Iq7dt4w==}
     dev: true
 
   /@hapi/hoek/9.2.1:
@@ -6703,15 +6697,6 @@ packages:
       conventional-commits-parser: 3.2.4
       cosmiconfig: 7.0.1
       tslib: 2.3.1
-    dev: false
-
-  /conventional-changelog-gitmoji-config/1.4.3:
-    resolution: {integrity: sha512-8HqbhNFuya85ICZvXv1ck2a2B7KlSVPGEFtK+Jar/qCUuq+E0PiINBJbpYcHOfsEucDRW4W4AUMQH7ap6+0DdQ==}
-    dependencies:
-      '@gitmoji/commit-types': 1.1.5
-      '@gitmoji/parser-opts': 1.3.0
-      cosmiconfig: 7.0.1
-    dev: true
 
   /conventional-changelog-writer/5.0.1:
     resolution: {integrity: sha512-5WsuKUfxW7suLblAbFnxAcrvf6r+0b7GvNaWUwUIk0bXMnENP/PEieGKVUQrjPqwPT4o3EPAASBXiY6iHooLOQ==}
@@ -16459,8 +16444,8 @@ packages:
     engines: {node: '>=0.12.0'}
     dev: true
 
-  /semantic-release-config/1.1.4:
-    resolution: {integrity: sha512-nM+bJkmmoSpxO5Kq1hz6UYWvHwfQsHXbyobxvRD0h+bd/TRvAwPSJDuudkrUrMONvi/gULagNH4pILrliy+Y/Q==}
+  /semantic-release-config/1.1.6_@types+node@16.11.24:
+    resolution: {integrity: sha512-dlVX83JshPe70RcyDhzCBgKPFJyBrdM72UFfn2ehU0ckNhnKJXpFV11XiExPKv3zG/JdL1ccBVcILyyWVMTHGQ==}
     engines: {node: '>=14.18.0'}
     dependencies:
       '@semantic-release/changelog': 6.0.1_semantic-release@19.0.2
@@ -16470,7 +16455,8 @@ packages:
       '@semantic-release/gitlab': 7.0.4_semantic-release@19.0.2
       '@semantic-release/npm': 9.0.0_semantic-release@19.0.2
       '@semantic-release/release-notes-generator': 10.0.3_semantic-release@19.0.2
-      conventional-changelog-gitmoji-config: 1.4.3
+      conventional-changelog-emoji-config: 1.4.3
+      git-cz-emoji: 1.1.17_@types+node@16.11.24
       semantic-release: 19.0.2
       semantic-release-gh: 0.0.7_semantic-release@19.0.2
       semantic-release-npm-deprecate-old-versions: 1.3.2
@@ -16478,6 +16464,9 @@ packages:
       tslib: 2.3.1
       yaml: 1.10.2
     transitivePeerDependencies:
+      - '@swc/core'
+      - '@swc/wasm'
+      - '@types/node'
       - encoding
       - supports-color
     dev: true
