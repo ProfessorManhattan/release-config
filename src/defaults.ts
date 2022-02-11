@@ -1,4 +1,5 @@
 export const COMMIT_ASSETS = [
+  'README.md',
   'npm-shrinkwrap.json',
   'package.json',
   'pnpm-lock.yaml',
@@ -55,15 +56,15 @@ export const DEFAULT_RELEASE_RULES = [
     type: 'test'
   },
   {
-    message: 'PATCH UPDATE*',
+    message: '*PATCH UPDATE*',
     release: 'patch'
   },
   {
-    message: 'MINOR UPDATE*',
+    message: '*MINOR UPDATE*',
     release: 'minor'
   },
   {
-    message: 'MAJOR UPDATE*',
+    message: '*MAJOR UPDATE*',
     release: 'major'
   },
   {

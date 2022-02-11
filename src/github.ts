@@ -46,7 +46,11 @@ export function githubSuccessComment(repoType: string, repoSubType: string, vari
       return ':tada: This issue has been resolved in version ${nextRelease.version} :tada:'
     }
     case 'python': {
-      return `:tada: This issue has been resolved in version \${nextRelease.version} :tada:\n\nThe release is available on **[PyPi.org](https://pypi.org/project/${variables.packageNamePyPi}/)** :snake:\n\n**Quick Update:**\n\n\`\`\`pip3 install -U ${variables.packageNamePyPi}\n\`\`\``
+      return `:tada: This issue has been resolved in version \${nextRelease.version} :tada:\n\nThe release is available on **[PyPi.org](https://pypi.org/project/${
+        variables.customPyPiPackageName ? variables.customPyPiPackageName : variables.customPackageName
+      }/)** :snake:\n\n**Quick Update:**\n\n\`\`\`pip3 install -U ${
+        variables.customPyPiPackageName ? variables.customPyPiPackageName : variables.customPackageName
+      }\n\`\`\``
     }
     // No default
   }

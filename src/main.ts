@@ -1,5 +1,4 @@
 import * as fs from 'node:fs'
-import { customTransformer } from './custom-transformer'
 import { COMMIT_ASSETS, DEFAULT_ASSETS_FILES, DEFAULT_RELEASE_RULES } from './defaults'
 import { githubSuccessComment } from './github'
 import { acquirePackage, acquireProjectType, acquireVariables } from './project'
@@ -13,7 +12,7 @@ const repoSubType = taskfile.vars.REPOSITORY_SUBTYPE
 
 // .variables.json
 const variables = acquireVariables()
-const releaseRules = variables.releaseRules ? variables.releaseRules : DEFAULT_RELEASE_RULES
+const releaseRules = DEFAULT_RELEASE_RULES
 const assets = variables.releaseAssets ? variables.releaseAssets : DEFAULT_ASSETS_FILES
 
 // Package.json
@@ -94,14 +93,14 @@ const plugins: any = [
   [
     '@semantic-release/commit-analyzer',
     {
-      config: 'conventional-changelog-gitmoji-config',
+      config: 'conventional-changelog-emoji-config',
       releaseRules
     }
   ],
   [
     '@semantic-release/release-notes-generator',
     {
-      config: 'conventional-changelog-gitmoji-config'
+      config: 'conventional-changelog-emoji-config'
     }
   ],
   [
@@ -153,6 +152,6 @@ const plugins: any = [
 
 // eslint-disable-next-line unicorn/prefer-module
 module.exports = {
-  plugins,
-  writerOpts: { transform: customTransformer }
+  plugins // ,
+  // WriterOpts: { transform: customTransformer }
 }
