@@ -37,8 +37,8 @@ dependencies:
   '@semantic-release/gitlab': 7.0.4_semantic-release@19.0.2
   '@semantic-release/npm': 9.0.0_semantic-release@19.0.2
   '@semantic-release/release-notes-generator': 10.0.3_semantic-release@19.0.2
-  conventional-changelog-emoji-config: 1.4.5_@types+node@16.11.24
-  git-cz-emoji: 1.1.23_@types+node@16.11.24
+  conventional-changelog-emoji-config: 1.4.6_@types+node@16.11.24
+  git-cz-emoji: 1.1.24_@types+node@16.11.24
   semantic-release: 19.0.2
   semantic-release-gh: 0.0.7_semantic-release@19.0.2
   semantic-release-npm-deprecate-old-versions: 1.3.2
@@ -57,7 +57,7 @@ devDependencies:
   handlebars-helpers: 0.10.0
   jest-preset-ts: 1.0.1_esbuild@0.12.29+typescript@4.5.5
   prettier-config-sexy-mode: 1.0.1_typescript@4.5.5
-  semantic-release-config: 1.1.12_@types+node@16.11.24
+  semantic-release-config: 1.1.13_@types+node@16.11.24
   typescript: 4.5.5
 
 packages:
@@ -6707,14 +6707,14 @@ packages:
       q: 1.5.1
     dev: true
 
-  /conventional-changelog-emoji-config/1.4.5_@types+node@16.11.24:
-    resolution: {integrity: sha512-CNfJVyHxdtqUvNcxWA0FmkvMWawx2TDR6j8WlB2r/chieLRMSJfaWJjDJijidnErHmiJ1eZCuMTxpKek2VA5+Q==}
+  /conventional-changelog-emoji-config/1.4.6_@types+node@16.11.24:
+    resolution: {integrity: sha512-m4RkrjpCy7xoAMuR/OKrYa2AQu6d3lHvAMONU0jKjqVYgWVYE456N6Czme9+lAIeSFlbX/vpbNrUttTNyzz/qA==}
     engines: {node: '>=14.18.0'}
     dependencies:
       conventional-changelog-writer: 5.0.1
       conventional-commits-parser: 3.2.4
       cosmiconfig: 7.0.1
-      git-cz-emoji: 1.1.23_@types+node@16.11.24
+      git-cz-emoji: 1.1.24_@types+node@16.11.24
       tslib: 2.3.1
     transitivePeerDependencies:
       - '@swc/core'
@@ -9672,8 +9672,8 @@ packages:
       assert-plus: 1.0.0
     dev: true
 
-  /git-cz-emoji/1.1.23_@types+node@16.11.24:
-    resolution: {integrity: sha512-FE11SgCzEZv+LkHxe46H6cCz0I7juqgmDfd292Z+HyHQtLaz3bT8dw81PAmPdWgNNZEf9gu8IDMMfwZJHXUDww==}
+  /git-cz-emoji/1.1.24_@types+node@16.11.24:
+    resolution: {integrity: sha512-m9XItxRoL6k/NCAeWubMJW2m3r29V6JkQSpZk5vtFY6IVJ8S4l6l7AVreOsRemKoWiVzxtb2I4xBbJNt1vlrNw==}
     engines: {node: '>=14.18.0'}
     dependencies:
       chalk: 4.1.2
@@ -16467,8 +16467,8 @@ packages:
     engines: {node: '>=0.12.0'}
     dev: true
 
-  /semantic-release-config/1.1.12_@types+node@16.11.24:
-    resolution: {integrity: sha512-iFc7Nmeu6WceGNjldN3/aibfbrMU5BZBUeeqZqGAy0jyyuGA3Yswt68NMj23iQliPLMUArXla+lwinmt0gpgcA==}
+  /semantic-release-config/1.1.13_@types+node@16.11.24:
+    resolution: {integrity: sha512-ClIVaEsf+8OOSpOZzv3Jtsw+zlxD8ChnjAovmE4otjR9erAXjh3Zm3ZlAd748MANFg9Mhdai7q6etN3zD7f8Tw==}
     engines: {node: '>=14.18.0'}
     dependencies:
       '@semantic-release/changelog': 6.0.1_semantic-release@19.0.2
@@ -16478,8 +16478,8 @@ packages:
       '@semantic-release/gitlab': 7.0.4_semantic-release@19.0.2
       '@semantic-release/npm': 9.0.0_semantic-release@19.0.2
       '@semantic-release/release-notes-generator': 10.0.3_semantic-release@19.0.2
-      conventional-changelog-emoji-config: 1.4.5_@types+node@16.11.24
-      git-cz-emoji: 1.1.23_@types+node@16.11.24
+      conventional-changelog-emoji-config: 1.4.6_@types+node@16.11.24
+      git-cz-emoji: 1.1.24_@types+node@16.11.24
       semantic-release: 19.0.2
       semantic-release-gh: 0.0.7_semantic-release@19.0.2
       semantic-release-npm-deprecate-old-versions: 1.3.2
