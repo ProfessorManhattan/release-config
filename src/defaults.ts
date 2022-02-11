@@ -1,3 +1,19 @@
+import { CommitProfile } from 'git-cz-emoji'
+
+export type CommitTypes =
+  | 'build'
+  | 'ci'
+  | 'docs'
+  | 'feat'
+  | 'fix'
+  | 'perf'
+  | 'refactor'
+  | 'revert'
+  | 'style'
+  | 'test'
+  | 'wip'
+  | 'chore'
+
 export const COMMIT_ASSETS = [
   'README.md',
   'npm-shrinkwrap.json',
@@ -11,50 +27,10 @@ export const COMMIT_ASSETS = [
 ]
 
 export const DEFAULT_RELEASE_RULES = [
-  {
-    release: false,
-    type: 'build'
-  },
-  {
-    release: false,
-    type: 'ci'
-  },
-  {
-    release: false,
-    type: 'chore'
-  },
-  {
-    release: false,
-    type: 'docs'
-  },
-  {
-    release: 'patch',
-    type: 'fix'
-  },
-  {
-    release: 'minor',
-    type: 'feat'
-  },
-  {
-    release: 'patch',
-    type: 'refactor'
-  },
-  {
-    release: 'patch',
-    type: 'revert'
-  },
-  {
-    release: 'patch',
-    type: 'perf'
-  },
-  {
-    release: false,
-    type: 'style'
-  },
-  {
-    release: false,
-    type: 'test'
-  },
+  ...(Object.keys(CommitProfile.types) as CommitTypes[]).map((x: CommitTypes) => ({
+    type: x,
+    release: (CommitProfile as any).types[x].release
+  })),
   {
     message: '*PATCH UPDATE*',
     release: 'patch'
