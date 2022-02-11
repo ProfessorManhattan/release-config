@@ -152,6 +152,5 @@ const plugins: any = [
 
 // eslint-disable-next-line unicorn/prefer-module
 module.exports = {
-  plugins // ,
-  // WriterOpts: { transform: customTransformer }
+  plugins
 }
