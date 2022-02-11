@@ -57,7 +57,7 @@ devDependencies:
   handlebars-helpers: 0.10.0
   jest-preset-ts: 1.0.1_esbuild@0.12.29+typescript@4.5.5
   prettier-config-sexy-mode: 1.0.1_typescript@4.5.5
-  semantic-release-config: 1.1.15_@types+node@16.11.24
+  semantic-release-config: 1.1.16_@types+node@16.11.24
   typescript: 4.5.5
 
 packages:
@@ -16467,8 +16467,8 @@ packages:
     engines: {node: '>=0.12.0'}
     dev: true
 
-  /semantic-release-config/1.1.15_@types+node@16.11.24:
-    resolution: {integrity: sha512-FQAkl7r88NQRDXVrL4A4I2S8Gob+7eI2uQFaMDHEJAoygU/Eak8WZLe0usd1PKedUwx2MZOPvGY5EQK4TSI1Cw==}
+  /semantic-release-config/1.1.16_@types+node@16.11.24:
+    resolution: {integrity: sha512-ja43zgR8/S8dDi+hvFnU8u66dVsPoPdaAPhKZXWIegQel1bhUdGZBtAinefBF1+sFlmWafDUKjE+VeAMuqw5fg==}
     engines: {node: '>=14.18.0'}
     dependencies:
       '@semantic-release/changelog': 6.0.1_semantic-release@19.0.2
