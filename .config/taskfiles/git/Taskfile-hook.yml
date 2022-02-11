@@ -68,8 +68,8 @@ tasks:
       start: '`pre-push` hook running..'
     cmds:
       - |
-        REMOTE={{index (split " " .CLI_ARGS) 0}}
-        URL={{index (split " " .CLI_ARGS) 1}}
+        REMOTE={{(split " " .CLI_ARGS)._0}}
+        URL={{(split " " .CLI_ARGS)._0}}
         HOST="$(echo $URL | sed 's/^.*@//' | sed 's/:.*$//')"
         ORG="$(echo $URL | sed 's/^.*://' | sed 's/\/.*$//')"
         PROJECT="$(echo $URL | sed 's/^[^\/]*\///' | sed 's/.[^\.]*$//')"
