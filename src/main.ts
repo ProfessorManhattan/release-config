@@ -115,6 +115,9 @@ const plugins: any = [
     }
   ],
   npmPublish ? npmBuild : [],
+  dockerPublish ? dockerPlugin : [],
+  goPublish ? goPlugin : [],
+  packerPublish ? packerPlugin : [],
   [
     '@semantic-release/npm',
     {
@@ -129,9 +132,12 @@ const plugins: any = [
       pypiPublish
     }
   ],
-  dockerPublish ? dockerPlugin : [],
-  goPublish ? goPlugin : [],
-  packerPublish ? packerPlugin : [],
+  [
+    semanticExec,
+    {
+      prepareCmd: 'task start'
+    }
+  ],
   [
     '@semantic-release/gitlab',
     {

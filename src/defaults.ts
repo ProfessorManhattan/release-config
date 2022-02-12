@@ -15,9 +15,12 @@ export type CommitTypes =
   | 'chore'
 
 export const COMMIT_ASSETS = [
+  'go.sum',
+  'go.mod',
   'README.md',
   'npm-shrinkwrap.json',
   'package.json',
+  'package-lock.json',
   'pnpm-lock.yaml',
   'pyproject.toml',
   'poetry.lock',
