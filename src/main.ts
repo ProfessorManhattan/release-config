@@ -17,24 +17,25 @@ const assets = variables.releaseAssets ? variables.releaseAssets : DEFAULT_ASSET
 
 // Package.json
 const packageVariables = acquirePackage()
+const blueprint = packageVariables.blueprint
 
 // Files to include, if changed, alongside the tagged commit
 const assetsToCommit = COMMIT_ASSETS
 
 // GitHub
 const githubOptions = {
-  addReleases: 'bottom',
+  addReleases: 'top',
   assets,
   assignees: [],
   failComment: false,
   failTitle: false,
   labels: false,
-  repositoryUrl: variables.repository.github,
+  repositoryUrl: blueprint.repository.github,
   successComment: githubSuccessComment(repoType, repoSubType, variables, packageVariables)
 }
 
 // NPM
-const npmPublish = repoType === 'npm' || variables.npmPublish
+const npmPublish = repoType === 'npm' || blueprint.npmPublish
 const npmBuild = [
   semanticExec,
   {
@@ -43,10 +44,10 @@ const npmBuild = [
 ]
 
 // Python
-const pypiPublish = repoType === 'python' || variables.pyPiPublish
+const pypiPublish = repoType === 'python' || blueprint.pyPiPublish
 
 // Docker
-const dockerPublish = fs.existsSync('Dockerfile') && (repoType === 'docker' || variables.dockerPublish)
+const dockerPublish = fs.existsSync('Dockerfile') && (repoType === 'docker' || blueprint.dockerPublish)
 const dockerPlugin = [
   semanticExec,
   {

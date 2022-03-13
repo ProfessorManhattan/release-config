@@ -54,6 +54,6 @@ export const DEFAULT_RELEASE_RULES = [
 
 export const DEFAULT_ASSETS_FILES = [
   {
-    path: ['dist/**']
+    path: ['dist/*.tgz']
   }
 ]
