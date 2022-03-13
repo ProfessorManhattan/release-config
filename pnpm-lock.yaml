@@ -29,7 +29,7 @@ specifiers:
   semantic-release-npm-deprecate-old-versions: ^1.3.2
   semantic-release-python: latest
   tslib: latest
-  typescript: latest
+  typescript: ^4.5.5
   yaml: ^1.10.2
 
 dependencies:
