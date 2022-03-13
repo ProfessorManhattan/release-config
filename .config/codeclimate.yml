@@ -1,4 +1,12 @@
 ---
+version: '2'
+
+plugins:
+  eslint:
+    enabled: true
+  yamllint:
+    enabled: true
+
 exclude_patterns:
   - _generated_/
   - .common/
@@ -32,10 +40,3 @@ exclude_patterns:
   - test-output/
   - testdata/
   - Tests/
-plugins:
-  eslint:
-    enabled: true
-  yamllint:
-    enabled: true
-
-version: '2'
