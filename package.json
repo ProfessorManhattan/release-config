@@ -105,7 +105,7 @@
     "customPackageName": "semantic-release-config",
     "description": "Bundles together an ambitious semantic-release shared configuration used across many project types",
     "github_id": "R_kgDOGueNGw",
-    "gitlab_group_id": "",
+    "gitlab_group_id": "12165875",
     "gitlab_project_id": "31472271",
     "group": "npm",
     "name": "Semantic Release Config",
