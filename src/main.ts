@@ -17,7 +17,7 @@ const assets = variables.releaseAssets ? variables.releaseAssets : DEFAULT_ASSET
 
 // Package.json
 const packageVariables = acquirePackage()
-const blueprint = packageVariables.blueprint
+const { blueprint } = packageVariables
 
 // Files to include, if changed, alongside the tagged commit
 const assetsToCommit = COMMIT_ASSETS
