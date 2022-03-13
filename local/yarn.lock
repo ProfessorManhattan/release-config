@@ -3052,9 +3052,9 @@ prettier-plugin-toml-fixed@^0.3.3:
     prettier "^1.16.0"
 
 semantic-release-gh@latest:
-  version "1.0.17"
-  resolved "1.0.17"
-  integrity sha512-IVYaUojXfWzMXBxWuAmU+ONIwJRQZAzG2Y2yhJQqIj5S+Ett4d6V5QpPmvPzBjSHBl0qBX39siZv+Eh+6ed9bQ==
+  version "1.0.19"
+  resolved "1.0.19"
+  integrity sha512-P9j1uIvFP8t4eu3zPNFEeN7GF/1Mp2K5ElbgdqROcVl+GmNkk5zfAluBdqdsAEcAO6vFK5FcEU9pmNa2oTjjmA==
   dependencies:
     "@octokit/rest" "^18.12.0"
     "@semantic-release/error" "^2.2.0"
@@ -3071,6 +3071,7 @@ semantic-release-gh@latest:
     mime "^3.0.0"
     p-filter "^2.1.0"
     p-retry "^4.6.1"
+    tslib latest
     url-join "^4.0.1"
 
 semantic-release-npm-deprecate-old-versions@^1.3.2:
