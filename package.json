@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "build": "bash start.sh && task npm:build:tsconfig",
-    "bump": "npm run build && npm version patch --no-scripts --no-commit-hooks --no-git-tag-version --force && SKIP_PREPUB=true npm publish --no-scripts",
+    "bump": "npm run build && npm version patch --no-scripts --no-commit-hooks --no-git-tag-version --force && SKIP_PREPUB=true npm publish",
     "commit": "bash start.sh && task commit",
     "fix": "bash start.sh && task fix",
     "help": "bash start.sh && task --menu",
