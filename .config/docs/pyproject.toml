@@ -1,14 +1,14 @@
 [tool.poetry]
-name = "{{#if customPyPiPackageName}}{{customPyPiPackageName}}{{else}}{{#if customPackageName}}{{customPackageName}}{{else}}{{repository.prefix.github}}{{slug}}{{/if}}{{/if}}"
-version = "{{version}}"
-description = "{{description}}"
-authors = ["{{author.name}} <{{author.email}}>"]
-license = "{{license}}"
+name = "semantic-release-config"
+version = "1.1.21"
+description = "Bundles together an ambitious semantic-release shared configuration used across many project types"
+authors = ["Brian Zalewski <brian@megabyte.space>"]
+license = "MIT"
 readme = "README.md"
-homepage = "{{link.home}}"
-documentation = "{{docs.link}}"
-repository = "{{repository.github}}"
-keywords = [{{{poetryKeywords}}}]
+homepage = "https://megabyte.space"
+documentation = "https://megabyte.space/docs/npm/config"
+repository = "https://github.com/ProfessorManhattan/semantic-release-config"
+keywords = ["bundle", "chrome", "config", "exec", "firefox", "git", "github", "gitlab", "library", "mblabs", "megabytelabs", "npm", "package", "professormanhattan", "release", "semantic", "washingtondc"]
 include = ["docs/CHANGELOG.md", "LICENSE"]
 classifiers = [
   "Development Status :: 4 - Beta",
@@ -73,12 +73,12 @@ semantic = [
 ]
 
 [tool.poetry.urls]
-"Bug Tracker" = "{{repository.gitlab}}{{repository.location.issues.gitlab}}"
-"GitHub" = "{{repository.github}}"
-"GitLab" = "{{repository.gitlab}}"
+"Bug Tracker" = "https://gitlab.com/megabyte-labs/npm/configs/release/-/issues"
+"GitHub" = "https://github.com/ProfessorManhattan/semantic-release-config"
+"GitLab" = "https://gitlab.com/megabyte-labs/npm/configs/release"
 "Give Directly" = "https://givedirectly.org"
-"Open Collective" = "{{profile_link.opencollective}}/{{profile.opencollective}}"
-"Patreon" = "{{profile_link.patreon}}/{{profile.patreon}}"
+"Open Collective" = "https://opencollective.com/megabytelabs"
+"Patreon" = "https://www.patreon.com/ProfessorManhattan"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
