@@ -2,4 +2,3 @@
 include:
   - remote: https://gitlab.com/megabyte-labs/gitlab-ci/-/raw/master/all.gitlab-ci.yml
   - remote: https://gitlab.com/megabyte-labs/gitlab-ci/-/raw/master/publish.gitlab-ci.yml
-
