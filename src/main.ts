@@ -1,4 +1,3 @@
-import * as fs from 'node:fs'
 import { COMMIT_ASSETS, DEFAULT_ASSETS_FILES, DEFAULT_RELEASE_RULES } from './defaults'
 import { githubSuccessComment } from './github'
 import { acquirePackage, acquireProjectType, acquireVariables } from './project'
@@ -34,63 +33,15 @@ const githubOptions = {
   successComment: githubSuccessComment(repoType, repoSubType, variables, packageVariables)
 }
 
-// NPM
 const npmPublish = repoType === 'npm' || blueprint.npmPublish
-const npmBuild = [
-  semanticExec,
-  {
-    prepareCmd: 'task build'
-  }
-]
-
-// Python
-const pypiPublish = repoType === 'python' || blueprint.pyPiPublish
-
-// Docker
-const dockerPublish = fs.existsSync('Dockerfile') && (repoType === 'docker' || blueprint.dockerPublish)
-const dockerPlugin = [
-  semanticExec,
-  {
-    prepareCmd: 'task docker:prepare',
-    publishCmd: 'task docker:publish',
-    verifyConditionsCmd: 'task docker:verify'
-  }
-]
-
-// Go
-const goPublish = repoType === 'go' && repoSubType === 'cli'
-const goPlugin = [
-  semanticExec,
-  {
-    prepareCmd: 'task go:goreleaser:build',
-    publishCmd: 'task go:goreleaser:release',
-    verifyConditionsCmd: 'task go:goreleaser:check'
-  }
-]
-
-// Packer
-const packerPublish = repoType === 'packer'
-const packerPlugin = [
-  semanticExec,
-  {
-    prepareCmd: 'task packer:prepare',
-    publishCmd: 'task packer:publish',
-    verifyConditionsCmd: 'task packer:verify'
-  }
-]
-
-// Ansible
-const ansiblePublish = repoType === 'ansible' && repoSubType === 'role'
-const ansiblePlugin = [
-  semanticExec,
-  {
-    prepareCmd: 'task ansible:prepare',
-    publishCmd: 'task ansible:publish',
-    verifyConditionsCmd: 'task ansible:verify'
-  }
-]
 
 const plugins: any = [
+  [
+    semanticExec,
+    {
+      prepareCmd: 'task start build:release'
+    }
+  ],
   [
     '@semantic-release/commit-analyzer',
     {
@@ -115,10 +66,6 @@ const plugins: any = [
         [Megabyte Labs Commit Guide](https://megabyte.space/docs/contributing/commits).'
     }
   ],
-  npmPublish ? npmBuild : [],
-  dockerPublish ? dockerPlugin : [],
-  goPublish ? goPlugin : [],
-  packerPublish ? packerPlugin : [],
   [
     '@semantic-release/npm',
     {
@@ -126,17 +73,13 @@ const plugins: any = [
       tarballDir: 'dist'
     }
   ],
-  'semantic-release-npm-deprecate-old-versions',
-  [
-    'semantic-release-python',
-    {
-      pypiPublish
-    }
-  ],
+  npmPublish ? 'semantic-release-npm-deprecate-old-versions' : [],
   [
     semanticExec,
     {
-      prepareCmd: 'task start'
+      prepareCmd: 'task prepare',
+      publishCmd: 'task publish',
+      verifyConditionsCmd: 'task verify'
     }
   ],
   [
@@ -153,8 +96,7 @@ const plugins: any = [
       // eslint-disable-next-line no-template-curly-in-string
       message: 'chore(release): version ${nextRelease.version}\n\n${nextRelease.notes}'
     }
-  ],
-  ansiblePublish ? ansiblePlugin : []
+  ]
 ].filter((plugin) => plugin.length)
 
 // eslint-disable-next-line unicorn/prefer-module
