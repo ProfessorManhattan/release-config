@@ -57,22 +57,22 @@
     "semantic-release-gh": "latest",
     "semantic-release-npm-deprecate-old-versions": "^1.3.2",
     "semantic-release-python": "latest",
-    "tslib": "latest",
-    "yaml": "^1.10.2"
+    "yaml": "^1.10.2",
+    "tslib": "latest"
   },
   "optionalDependencies": {},
   "devDependencies": {
-    "@commitlint/config-conventional": "latest",
     "@types/node": "^16.11.6",
     "esbuild": "^0.12.29",
     "esbuild-node-externals": "^1.3.0",
     "eslint-config-strict-mode": "latest",
     "git-cz-emoji": "latest",
-    "handlebars-helpers": "latest",
     "jest-preset-ts": "latest",
     "prettier-config-sexy-mode": "latest",
     "semantic-release-config": "latest",
-    "typescript": "^4.5.5"
+    "typescript": "^4.5.5",
+    "@commitlint/config-conventional": "latest",
+    "handlebars-helpers": "latest"
   },
   "keywords": [
     "bundle",
@@ -110,7 +110,7 @@
     "name": "Semantic Release Config",
     "overview": "[semantic-release](https://www.npmjs.com/package/semantic-release) automates the process of releasing packages to a wide variety of target eco-systems. This package bundles together the dependencies required for automatically releasing assets for the following project types:\n\n* **NPM**: Publishes to npmjs.org\n* **GitLab**: Publishes to GitLab Releases\n* **GitHub**: Publishes to GitHub Releases\n* **PyPi**: Publishes Python projects to pypi.org (`pyproject.toml` and `setup.py`/`setup.cfg` supported)\n* **Docker**: Publishes to DockerHub or a registry of your choice\n* **VagrantUp**: Builds VMs with Packer and then publishes them to VagrantUp\n* **Go**: Uses GitHub/GitLab Releases\n* **Ansible**: Publishes Ansible roles to Ansible Galaxy\n\nThe configuration can be easily modified to accomodate your specific needs (like most semantic-release shared configurations). A good amount of the actual logic for verifying and compiling assets in this particular configuration is housed in our Taskfile.yml file. The [Taskfile.yml project](https://taskfile.dev/#/) is an incredibly useful project you should check out. It helps combine bash script snippets into useful flows, with dependency management and caching capabilities. We even created a more flavorful variant called **[Bodega](https://github.com/ProfessorManhattan/Bodega)**.",
     "repository": {
-      "github": "https://github.com/ProfessorManhattan/semantic-release-config",
+      "github": "https://github.com/megabyte-labs/semantic-release-config",
       "gitlab": "https://gitlab.com/megabyte-labs/npm/configs/release"
     },
     "slug": "release-config",
@@ -129,9 +129,7 @@
     "showAuthor": true
   },
   "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
+    "extends": [],
     "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
   "eslintConfig": {
