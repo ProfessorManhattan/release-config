@@ -410,8 +410,6 @@ tasks:
     cmds:
       - task: git:gitlab:group:exec
 
-  release:verify: 'true'
-
   init:
     deps:
       - install:software:jq
