@@ -14,6 +14,8 @@ All notable changes to this project will be documented in this file. In order to
 
 ## [1.1.21](https://gitlab.com/megabyte-labs/npm/configs/release/compare/v1.1.20...v1.1.21) (2022-04-07)
 
+## [1.1.21](https://gitlab.com/megabyte-labs/npm/configs/release/compare/v1.1.20...v1.1.21) (2022-04-07)
+
 ## [1.1.20](https://gitlab.com/megabyte-labs/npm/configs/release/compare/v1.1.19...v1.1.20) (2022-04-07)
 
 ## [1.1.19](https://gitlab.com/megabyte-labs/npm/configs/release/compare/v1.1.18...v1.1.19) (2022-04-07)
