@@ -35,7 +35,8 @@ const githubOptions = {
 
 const npmPublish = repoType === 'npm' || blueprint.npmPublish
 
-const plugins: any = [
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const plugins: readonly any[] = [
   [
     semanticExec,
     {
@@ -60,10 +61,10 @@ const plugins: any = [
     {
       changelogFile: 'docs/CHANGELOG.md',
       changelogTitle:
-        '# Changelog\n\nAll notable changes to this project will be documented in this file. In order to maintain \
-        this file through automation, all commits to this repository must adhere to the guidelines laid out by \
-        [Conventional Commits](https://conventionalcommits.org) and the \
-        [Megabyte Labs Commit Guide](https://megabyte.space/docs/contributing/commits).'
+        '# Changelog\n\nAll notable changes to this project will be documented in this file. In order to maintain ' +
+        'this file through automation, all commits to this repository must adhere to the guidelines laid out by ' +
+        '[Conventional Commits](https://conventionalcommits.org) and the ' +
+        '[Megabyte Labs Commit Guide](https://megabyte.space/docs/contributing/commits).'
     }
   ],
   [

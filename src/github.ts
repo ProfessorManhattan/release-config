@@ -1,3 +1,5 @@
+/* eslint-disable max-len, no-template-curly-in-string, switch-case/no-case-curly */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, max-lines-per-function, max-params, complexity, sonarjs/cognitive-complexity
 export function githubSuccessComment(repoType: string, repoSubType: string, variables: any, packageVariables: any) {
   if (repoType === 'angular') {
     // Re-visit

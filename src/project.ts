@@ -16,6 +16,7 @@ export const acquireProjectType = (): {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const acquireVariables = (): any => {
   if (fs.existsSync('./.variables.json')) {
     return JSON.parse(fs.readFileSync('./.variables.json').toString())
@@ -24,6 +25,7 @@ export const acquireVariables = (): any => {
   return new Error('package.json must be present in the project!')
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const acquirePackage = (): any => {
   if (fs.existsSync('./package.json')) {
     return JSON.parse(fs.readFileSync('package.json').toString())

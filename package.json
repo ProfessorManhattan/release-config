@@ -134,20 +134,7 @@
     "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
   "eslintConfig": {
-    "extends": "eslint-config-strict-mode",
-    "rules": {
-      "@typescript-eslint/no-explicit-any": "warn",
-      "complexity": "warn",
-      "line-comment-position": "warn",
-      "max-lines-per-function": "warn",
-      "max-params": "warn",
-      "no-inline-comments": "warn",
-      "no-multi-str": "warn",
-      "no-secrets/no-secrets": "warn",
-      "no-template-curly-in-string": "warn",
-      "sonarjs/cognitive-complexity": "warn",
-      "switch-case/no-case-curly": "warn"
-    }
+    "extends": "eslint-config-strict-mode"
   },
   "funding": [
     {

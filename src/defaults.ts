@@ -31,6 +31,7 @@ export const COMMIT_ASSETS = [
 
 export const DEFAULT_RELEASE_RULES = [
   ...(Object.keys(CommitProfile.types) as readonly CommitTypes[]).map((type: CommitTypes) => ({
+    // eslint-disable-next-line security/detect-object-injection, @typescript-eslint/no-explicit-any
     release: (CommitProfile as any).types[type].release,
     type
   })),
