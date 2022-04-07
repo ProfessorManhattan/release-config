@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "semantic-release-config",
-  "version": "1.1.21",
+  "version": "1.1.19",
   "description": "Bundles together an ambitious semantic-release shared configuration used across many project types",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
@@ -103,7 +103,7 @@
   "blueprint": {
     "customPackageName": "semantic-release-config",
     "description": "Bundles together an ambitious semantic-release shared configuration used across many project types",
-    "github_id": "",
+    "github_id": "R_kgDOGueNGw",
     "gitlab_group_id": "12165875",
     "gitlab_project_id": "31472271",
     "group": "npm",
