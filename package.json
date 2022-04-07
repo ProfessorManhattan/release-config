@@ -1,48 +1,48 @@
 {
+  "private": false,
+  "name": "semantic-release-config",
+  "version": "1.1.21",
+  "description": "Bundles together an ambitious semantic-release shared configuration used across many project types",
+  "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
-  "blueprint": {
-    "customPackageName": "semantic-release-config",
-    "description": "Bundles together an ambitious semantic-release shared configuration used across many project types",
-    "github_id": "R_kgDOGueNGw",
-    "gitlab_group_id": "12165875",
-    "gitlab_project_id": "31472271",
-    "group": "npm",
-    "name": "Semantic Release Config",
-    "overview": "[semantic-release](https://www.npmjs.com/package/semantic-release) automates the process of releasing packages to a wide variety of target eco-systems. This package bundles together the dependencies required for automatically releasing assets for the following project types:\n\n* **NPM**: Publishes to npmjs.org\n* **GitLab**: Publishes to GitLab Releases\n* **GitHub**: Publishes to GitHub Releases\n* **PyPi**: Publishes Python projects to pypi.org (`pyproject.toml` and `setup.py`/`setup.cfg` supported)\n* **Docker**: Publishes to DockerHub or a registry of your choice\n* **VagrantUp**: Builds VMs with Packer and then publishes them to VagrantUp\n* **Go**: Uses GitHub/GitLab Releases\n* **Ansible**: Publishes Ansible roles to Ansible Galaxy\n\nThe configuration can be easily modified to accomodate your specific needs (like most semantic-release shared configurations). A good amount of the actual logic for verifying and compiling assets in this particular configuration is housed in our Taskfile.yml file. The [Taskfile.yml project](https://taskfile.dev/#/) is an incredibly useful project you should check out. It helps combine bash script snippets into useful flows, with dependency management and caching capabilities. We even created a more flavorful variant called **[Bodega](https://github.com/ProfessorManhattan/Bodega)**.",
-    "repository": {
-      "github": "https://github.com/megabyte-labs/semantic-release-config",
-      "gitlab": "https://gitlab.com/megabyte-labs/npm/configs/release"
-    },
-    "slug": "release-config",
-    "subgroup": "config",
-    "subheader_description": "A unified semantic-release shared configuration for GitHub, GitLab, NPM, PyPi, Docker, Go, Packer and more!",
-    "title": "An Ambitious Semantic Release Config"
+  "homepage": "https://megabyte.space",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/megabyte-labs/semantic-release-config.git"
   },
   "bugs": {
     "email": "help@megabyte.space",
     "url": "https://gitlab.com/megabyte-labs/npm/configs/release/-/issues"
   },
-  "changelog": {
-    "displayTypes": [
-      "feat",
-      "fix",
-      "perf",
-      "refactor",
-      "revert"
-    ],
-    "showAuthor": true
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
-    "helpUrl": "https://megabyte.space/docs/contributing/commits"
+  "type": "commonjs",
+  "main": "dist/main.js",
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "scripts": {
+    "build": "bash start.sh && task npm:build:tsconfig",
+    "bump": "npm run build && npm version patch --no-scripts --no-commit-hooks --no-git-tag-version --force && SKIP_PREPUB=true npm publish",
+    "commit": "bash start.sh && task commit",
+    "fix": "bash start.sh && task fix",
+    "help": "bash start.sh && task --menu",
+    "lint": "bash start.sh && task lint",
+    "preload": "bash start.sh && task preload",
+    "prepare": "bash start.sh && (test -f Taskfile.yml && task npm:prepare) || true",
+    "prepublishOnly": "test -z $SKIP_PREPUB && bash start.sh && task npm:bundle:create || true",
+    "release": "bash start.sh && task publish:semantic-release",
+    "repair": "bash <(curl -sS https://install.doctor/repair)",
+    "start": "test -z $SKIP_NPM_START && bash start.sh || true",
+    "test": "bash start.sh && task npm:test:none",
+    "unpack": "bash start.sh && task npm:bundle:unpack",
+    "update": "bash start.sh && task update"
   },
   "config": {
     "commitizen": {
       "path": "node_modules/git-cz-emoji"
     }
   },
+  "typings": "dist/main.d.ts",
   "dependencies": {
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/commit-analyzer": "^9.0.2",
@@ -60,7 +60,7 @@
     "tslib": "latest",
     "yaml": "^1.10.2"
   },
-  "description": "Bundles together an ambitious semantic-release shared configuration used across many project types",
+  "optionalDependencies": {},
   "devDependencies": {
     "@commitlint/config-conventional": "latest",
     "@types/node": "^16.11.6",
@@ -73,60 +73,6 @@
     "prettier-config-sexy-mode": "latest",
     "semantic-release-config": "latest",
     "typescript": "^4.5.5"
-  },
-  "engines": {
-    "node": ">=14.18.0"
-  },
-  "eslintConfig": {
-    "extends": "eslint-config-strict-mode",
-    "rules": {
-      "@typescript-eslint/no-explicit-any": "warn",
-      "complexity": "warn",
-      "line-comment-position": "warn",
-      "max-lines-per-function": "warn",
-      "max-params": "warn",
-      "no-inline-comments": "warn",
-      "no-multi-str": "warn",
-      "no-secrets/no-secrets": "warn",
-      "no-template-curly-in-string": "warn",
-      "sonarjs/cognitive-complexity": "warn",
-      "switch-case/no-case-curly": "warn"
-    }
-  },
-  "files": [
-    "dist",
-    "lib"
-  ],
-  "funding": [
-    {
-      "type": "opencollective",
-      "url": "https://opencollective.com/megabytelabs"
-    },
-    {
-      "type": "patreon",
-      "url": "https://www.patreon.com/ProfessorManhattan"
-    }
-  ],
-  "homepage": "https://megabyte.space",
-  "jest": {
-    "preset": "jest-preset-ts",
-    "reporters": [
-      "default",
-      [
-        "jest-html-reporters",
-        {
-          "filename": "index.html",
-          "logoImgPath": "./.config/assets/logo-jest-report.png",
-          "openReport": true,
-          "pageTitle": "Code Coverage Report",
-          "publicPath": "./coverage"
-        }
-      ]
-    ]
-  },
-  "jscpd": {
-    "gitignore": true,
-    "threshold": 0.1
   },
   "keywords": [
     "bundle",
@@ -147,7 +93,93 @@
     "semantic",
     "washingtondc"
   ],
-  "license": "MIT",
+  "engines": {
+    "node": ">=14.18.0"
+  },
+  "publishConfig": {
+    "@megabyte:registry": "https://gitlab.com/api/v4/projects/31472271/packages/npm/",
+    "access": "public"
+  },
+  "blueprint": {
+    "customPackageName": "semantic-release-config",
+    "description": "Bundles together an ambitious semantic-release shared configuration used across many project types",
+    "github_id": "R_kgDOGueNGw",
+    "gitlab_group_id": "12165875",
+    "gitlab_project_id": "31472271",
+    "group": "npm",
+    "name": "Semantic Release Config",
+    "overview": "[semantic-release](https://www.npmjs.com/package/semantic-release) automates the process of releasing packages to a wide variety of target eco-systems. This package bundles together the dependencies required for automatically releasing assets for the following project types:\n\n* **NPM**: Publishes to npmjs.org\n* **GitLab**: Publishes to GitLab Releases\n* **GitHub**: Publishes to GitHub Releases\n* **PyPi**: Publishes Python projects to pypi.org (`pyproject.toml` and `setup.py`/`setup.cfg` supported)\n* **Docker**: Publishes to DockerHub or a registry of your choice\n* **VagrantUp**: Builds VMs with Packer and then publishes them to VagrantUp\n* **Go**: Uses GitHub/GitLab Releases\n* **Ansible**: Publishes Ansible roles to Ansible Galaxy\n\nThe configuration can be easily modified to accomodate your specific needs (like most semantic-release shared configurations). A good amount of the actual logic for verifying and compiling assets in this particular configuration is housed in our Taskfile.yml file. The [Taskfile.yml project](https://taskfile.dev/#/) is an incredibly useful project you should check out. It helps combine bash script snippets into useful flows, with dependency management and caching capabilities. We even created a more flavorful variant called **[Bodega](https://github.com/ProfessorManhattan/Bodega)**.",
+    "repository": {
+      "github": "https://github.com/megabyte-labs/semantic-release-config",
+      "gitlab": "https://gitlab.com/megabyte-labs/npm/configs/release"
+    },
+    "slug": "release-config",
+    "subgroup": "config",
+    "subheader_description": "A unified semantic-release shared configuration for GitHub, GitLab, NPM, PyPi, Docker, Go, Packer and more!",
+    "title": "An Ambitious Semantic Release Config"
+  },
+  "changelog": {
+    "displayTypes": [
+      "feat",
+      "fix",
+      "perf",
+      "refactor",
+      "revert"
+    ],
+    "showAuthor": true
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "helpUrl": "https://megabyte.space/docs/contributing/commits"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-strict-mode",
+    "rules": {
+      "@typescript-eslint/no-explicit-any": "warn",
+      "complexity": "warn",
+      "line-comment-position": "warn",
+      "max-lines-per-function": "warn",
+      "max-params": "warn",
+      "no-inline-comments": "warn",
+      "no-multi-str": "warn",
+      "no-secrets/no-secrets": "warn",
+      "no-template-curly-in-string": "warn",
+      "sonarjs/cognitive-complexity": "warn",
+      "switch-case/no-case-curly": "warn"
+    }
+  },
+  "funding": [
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/megabytelabs"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/ProfessorManhattan"
+    }
+  ],
+  "jest": {
+    "preset": "jest-preset-ts",
+    "reporters": [
+      "default",
+      [
+        "jest-html-reporters",
+        {
+          "filename": "index.html",
+          "logoImgPath": "./.config/assets/logo-jest-report.png",
+          "openReport": true,
+          "pageTitle": "Code Coverage Report",
+          "publicPath": "./coverage"
+        }
+      ]
+    ]
+  },
+  "jscpd": {
+    "gitignore": true,
+    "threshold": 0.1
+  },
   "lint-staged": {
     "(Brewfile|composer.lock|Gemfile|Gopkg.lock|Pipfile.lock)": [
       "task fix:prettier --"
@@ -215,8 +247,6 @@
       "task image:compress --"
     ]
   },
-  "main": "dist/main.js",
-  "name": "semantic-release-config",
   "nodemonConfig": {
     "exec": "tsc -p . && node --inspect-brk dist/main",
     "ext": "js,jsx,json,ts,tsx,yml",
@@ -247,7 +277,6 @@
       "update": "Update and refresh the repository with upstream changes and templated parts"
     }
   },
-  "optionalDependencies": {},
   "pnpm": {
     "allowedVersions": {
       "@typescript-eslint/eslint-plugin": "5",
@@ -267,11 +296,6 @@
     }
   },
   "prettier": "prettier-config-sexy-mode",
-  "private": false,
-  "publishConfig": {
-    "@megabyte:registry": "https://gitlab.com/api/v4/projects/31472271/packages/npm/",
-    "access": "public"
-  },
   "release": {
     "branches": [
       "main",
@@ -283,29 +307,5 @@
       }
     ],
     "extends": "semantic-release-config"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/megabyte-labs/semantic-release-config.git"
-  },
-  "scripts": {
-    "build": "bash start.sh && task npm:build:tsconfig",
-    "bump": "npm run build && npm version patch --no-scripts --no-commit-hooks --no-git-tag-version --force && SKIP_PREPUB=true npm publish",
-    "commit": "bash start.sh && task commit",
-    "fix": "bash start.sh && task fix",
-    "help": "bash start.sh && task --menu",
-    "lint": "bash start.sh && task lint",
-    "preload": "bash start.sh && task preload",
-    "prepare": "bash start.sh && (test -f Taskfile.yml && task npm:prepare) || true",
-    "prepublishOnly": "test -z $SKIP_PREPUB && bash start.sh && task npm:bundle:create || true",
-    "release": "bash start.sh && task publish:semantic-release",
-    "repair": "bash <(curl -sS https://install.doctor/repair)",
-    "start": "test -z $SKIP_NPM_START && bash start.sh || true",
-    "test": "bash start.sh && task npm:test:none",
-    "unpack": "bash start.sh && task npm:bundle:unpack",
-    "update": "bash start.sh && task update"
-  },
-  "type": "commonjs",
-  "typings": "dist/main.d.ts",
-  "version": "1.1.21"
+  }
 }
