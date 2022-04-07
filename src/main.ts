@@ -65,7 +65,7 @@ const plugins: readonly any[] = [
     '@semantic-release/npm',
     {
       npmPublish,
-      tarballDir: 'dist'
+      tarballDir: 'artifacts'
     }
   ],
   npmPublish ? 'semantic-release-npm-deprecate-old-versions' : [],
