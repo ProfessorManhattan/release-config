@@ -7,7 +7,7 @@ echo "HEYYYz"
 echo "$1"
 #[ -f .config/log ] && chmod +x .config/log
 if [ -f "$(dirname "$0")/_/husky.sh" ]; then
-  . "$(dirname "$0")/_/husky.sh"
+  #. "$(dirname "$0")/_/husky.sh"
   #type task &> /dev/null # && task git:hook:commit-msg -- "$1"
 else
   .config/log warn 'Husky pre-commit hooks are currently not properly setup.'
