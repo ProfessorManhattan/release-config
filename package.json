@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "semantic-release-config",
-  "version": "1.1.26",
+  "version": "1.2.0",
   "description": "Bundles together an ambitious semantic-release shared configuration used across many project types",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",

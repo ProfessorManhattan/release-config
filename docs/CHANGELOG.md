@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. In order to maintain this file through automation, all commits to this repository must adhere to the guidelines laid out by [Conventional Commits](https://conventionalcommits.org) and the [Megabyte Labs Commit Guide](https://megabyte.space/docs/contributing/commits).
 
+# [1.2.0](https://gitlab.com/megabyte-labs/npm/configs/release/compare/v1.1.26...v1.2.0) (2022-04-07)
+
+
+### ✨ Features
+
+* **test**: latest ([5d8c589](https://gitlab.com/megabyte-labs/npm/configs/release/commit/5d8c589)) 
+
+
+### 🐛 Bug Fixes
+
+* **testing**: testing feature ([eb1e486](https://gitlab.com/megabyte-labs/npm/configs/release/commit/eb1e486)) 
+* **test**: testing Semantic ([4bb83a3](https://gitlab.com/megabyte-labs/npm/configs/release/commit/4bb83a3)) 
+
+
+
+
+
+heyHEYheyHEY
+
 ## [1.1.26](https://gitlab.com/megabyte-labs/npm/configs/release/compare/v1.1.25...v1.1.26) (2022-04-07)
 
 ## [1.1.25](https://gitlab.com/megabyte-labs/npm/configs/release/compare/v1.1.24...v1.1.25) (2022-04-07)

@@ -72,7 +72,7 @@
 
 ## Overview
 
-[semantic-release](https://www.npmjs.com/package/semantic-release) automates the process of releasing packages to a variety of target eco-systems. This package bundles together the dependencies required for automatically releasing assets for the following project types:
+[semantic-release](https://www.npmjs.com/package/semantic-release) automates the process of releasing software to a variety of eco-systems. This package bundles together the dependencies required for automatically releasing assets for the following project types:
 
 - **NPM**: Publishes to npmjs.org
 - **GitLab**: Publishes to GitLab Releases
