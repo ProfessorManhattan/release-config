@@ -39,7 +39,7 @@ const plugins: any = [
   [
     semanticExec,
     {
-      prepareCmd: 'task start build:release'
+      prepareCmd: 'task start release:build'
     }
   ],
   [
@@ -77,9 +77,14 @@ const plugins: any = [
   [
     semanticExec,
     {
-      prepareCmd: 'task prepare',
-      publishCmd: 'task publish',
-      verifyConditionsCmd: 'task verify'
+      analyzeCommitsCmd: 'task --silent release:analyze',
+      failCmd: 'task release:fail',
+      generateNotesCmd: 'echo "heyHEYheyHEY',
+      prepareCmd: 'task release:prepare',
+      publishCmd: 'task --silent release:publish',
+      successCmd: 'task release:success',
+      verifyConditionsCmd: 'task --silent release:verify:conditions',
+      verifyReleaseCmd: 'task --silent release:verify:release'
     }
   ],
   [
