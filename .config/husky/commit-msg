@@ -3,7 +3,8 @@
 # @file .config/husky/commit-msg
 # @brief A git hook script for the `commit-msg` hook
 # @arg $1 Path to a temporary file that contains the commit message written by the developer (e.g. .git/COMMIT_EDITMSG)
-
+echo "HEYYY"
+echo "$1"
 [ -f .config/log ] && chmod +x .config/log
 if [ -f "$(dirname "$0")/_/husky.sh" ]; then
   . "$(dirname "$0")/_/husky.sh"
