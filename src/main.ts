@@ -81,7 +81,7 @@ const plugins: readonly any[] = [
       addChannelCmd: 'task --silent release:add-channel',
       analyzeCommitsCmd: 'task --silent release:analyze',
       failCmd: 'task release:fail',
-      generateNotesCmd: 'echo "heyHEYheyHEY',
+      generateNotesCmd: 'echo "heyHEYheyHEY"',
       prepareCmd: 'task release:prepare',
       publishCmd: 'task release:publish',
       successCmd: 'task release:success',
