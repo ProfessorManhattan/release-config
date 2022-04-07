@@ -38,12 +38,6 @@ const npmPublish = repoType === 'npm' || blueprint.npmPublish
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const plugins: readonly any[] = [
   [
-    semanticExec,
-    {
-      prepareCmd: 'task start release:build'
-    }
-  ],
-  [
     '@semantic-release/commit-analyzer',
     {
       config: 'conventional-changelog-emoji-config',
@@ -81,7 +75,7 @@ const plugins: readonly any[] = [
       addChannelCmd: 'task --silent release:add-channel',
       analyzeCommitsCmd: 'task --silent release:analyze',
       failCmd: 'task release:fail',
-      generateNotesCmd: 'echo "heyHEYheyHEY"',
+      generateNotesCmd: 'task --silent release:notes',
       prepareCmd: 'task release:prepare',
       publishCmd: 'task release:publish',
       successCmd: 'task release:success',
