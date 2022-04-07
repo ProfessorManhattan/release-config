@@ -78,11 +78,12 @@ const plugins: readonly any[] = [
   [
     semanticExec,
     {
+      addChannelCmd: 'task --silent release:add-channel',
       analyzeCommitsCmd: 'task --silent release:analyze',
       failCmd: 'task release:fail',
       generateNotesCmd: 'echo "heyHEYheyHEY',
       prepareCmd: 'task release:prepare',
-      publishCmd: 'task --silent release:publish',
+      publishCmd: 'task release:publish',
       successCmd: 'task release:success',
       verifyConditionsCmd: 'task --silent release:verify:conditions',
       verifyReleaseCmd: 'task --silent release:verify:release'

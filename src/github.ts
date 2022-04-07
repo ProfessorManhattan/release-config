@@ -1,4 +1,6 @@
 /* eslint-disable max-len, no-template-curly-in-string, switch-case/no-case-curly */
+import * as fs from 'node:fs'
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, max-lines-per-function, max-params, complexity, sonarjs/cognitive-complexity
 export function githubSuccessComment(repoType: string, repoSubType: string, variables: any, packageVariables: any) {
   if (repoType === 'angular') {
@@ -40,9 +42,19 @@ export function githubSuccessComment(repoType: string, repoSubType: string, vari
       return `:tada: This issue has been resolved in version \${nextRelease.version} :tada:\n\nThe release is available on **[npmjs.com](https://www.npmjs.com/package/${packageVariables.name})** :rocket:`
     }
     case 'packer': {
-      if (variables.vagrantUpURL) {
-        return `:tada: This issue has been resolved in version \${nextRelease.version} :tada:\n\nThe release is available on **[VagrantUp](${variables.vagrantUpURL})** :rocket:`
-        // Re-visit: Add vagrantUpURL
+      if (fs.existsSync('./template.json')) {
+        const templateVariables = JSON.parse(fs.readFileSync('./template.json').toString())
+        if (
+          templateVariables.variables &&
+          templateVariables.variables.box_basename &&
+          templateVariables.variables.vagrantup_user
+        ) {
+          const vagrantUpURL = `https://app.vagrantup.com/${templateVariables.variables.vagrantup_user}/boxes/${templateVariables.variables.box_basename}`
+
+          return `:tada: This issue has been resolved in version \${nextRelease.version} :tada:\n\nThe release is available on **[VagrantUp](${vagrantUpURL})** :rocket:`
+        }
+
+        return ':tada: This issue has been resolved in version ${nextRelease.version} :tada:'
       }
 
       return ':tada: This issue has been resolved in version ${nextRelease.version} :tada:'
