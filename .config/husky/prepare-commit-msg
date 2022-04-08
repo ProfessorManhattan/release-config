@@ -17,7 +17,7 @@ if [ -f "$(dirname "$0")/_/husky.sh" ]; then
     elif ! type pnpx &> /dev/null; then
       .config/log error '`pnpm` or `npm` must be installed'
     else
-      exec < /dev/tty && pnpx git-cz --hook || true
+      exec < /dev/tty && (pnpx git-cz --hook || true)
     fi
   fi
 else
