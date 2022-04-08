@@ -704,11 +704,6 @@
   resolved "16.11.26"
   integrity sha512-GZ7bu5A6+4DtG7q9GsoHXy3ALcgeIHP4NnL0Vv2wu0uUB/yQex26v0tf6/na1mm0+bS9Uw+0DFex7aaKr2qawQ==
 
-"@types/node@^16.11.26":
-  version "16.11.26"
-  resolved "16.11.26"
-  integrity sha512-GZ7bu5A6+4DtG7q9GsoHXy3ALcgeIHP4NnL0Vv2wu0uUB/yQex26v0tf6/na1mm0+bS9Uw+0DFex7aaKr2qawQ==
-
 "@types/node@^16.11.6":
   version "16.11.26"
   resolved "16.11.26"
@@ -1009,14 +1004,6 @@ create-jest-runner@~0.4.1:
     throat "^5.0.0"
 
 esbuild-node-externals@^1.3.0:
-  version "1.4.1"
-  resolved "1.4.1"
-  integrity sha512-ZFNGa6w1kYzn4wx9ty4eaItaOTSe2hWQZ6WXa/8guKJCiXL3XpW2CZT4gkx2OhfBKxpqaqa7ZeGK54ScoLSUdw==
-  dependencies:
-    find-up "5.0.0"
-    tslib "2.3.1"
-
-esbuild-node-externals@^1.4.1:
   version "1.4.1"
   resolved "1.4.1"
   integrity sha512-ZFNGa6w1kYzn4wx9ty4eaItaOTSe2hWQZ6WXa/8guKJCiXL3XpW2CZT4gkx2OhfBKxpqaqa7ZeGK54ScoLSUdw==
@@ -3179,11 +3166,6 @@ tslib@latest:
   integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==
 
 typescript@^4.5.5:
-  version "4.6.3"
-  resolved "4.6.3"
-  integrity sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==
-
-typescript@^4.6.2:
   version "4.6.3"
   resolved "4.6.3"
   integrity sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==
