@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. In order to maintain this file through automation, all commits to this repository must adhere to the guidelines laid out by [Conventional Commits](https://conventionalcommits.org) and the [Megabyte Labs Commit Guide](https://megabyte.space/docs/contributing/commits).
 
+## [1.3.2](https://gitlab.com/megabyte-labs/npm/configs/release/compare/v1.3.1...v1.3.2) (2022-04-08)
+
+
+
+
+
+Grab this version by running:
+
+
+```
+npm i --save-dev semantic-release-config@1.3.1
+```
+
 ## [1.3.1](https://gitlab.com/megabyte-labs/npm/configs/release/compare/v1.3.0...v1.3.1) (2022-04-07)
 
 
